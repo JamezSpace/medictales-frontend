@@ -7,6 +7,7 @@
 
     div.hero{
         display: block;
+        height: 100%;
     }
 
     div.tabs-pane{
@@ -15,8 +16,8 @@
         align-items: center;
         justify-content: space-evenly;
         position: absolute;
-        top: calc(100dvh - 20px);
-        transform: translateY(-50%);
+       /* top: calc(100dvh - 20px);
+        transform: translateY(-50%); */
         border-radius: 20px;
         margin-inline: auto;
     }
