@@ -83,7 +83,7 @@ button.header-button * {
     font-size: 20px;
 }
 
-button.header-button::after {
+button.header-button::after:not(:last-child) {
     content: attr(data-tooltip);
     position: absolute;
     background-color: rgb(0, 0, 0, 0.3);
