@@ -19,6 +19,6 @@
        /* top: calc(100dvh - 20px);
         transform: translateY(-50%); */
         border-radius: 20px;
-        margin-inline: auto;
+        margin: 0 auto;
     }
 }
