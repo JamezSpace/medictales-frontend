@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./dashboard.css">
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <title>Medictales | Dashboard</title>
+</head>
+
+<body>
+    <header class="page-nav">
+        <div class="logo"></div>
+        <div class="buttons">
+            <button id="change-theme" class="header-button" data-tooltip="Theme">
+                <iconify-icon icon="iconamoon:mode-light-light"></iconify-icon>
+            </button>
+            <button id="see-notifications" class="header-button" data-tooltip="Notifications" onclick="openNotifBox()">
+                <iconify-icon icon="iconamoon:notification-light"></iconify-icon>
+            </button>
+            <button id="help" class="header-button" data-tooltip="Help">
+                <iconify-icon icon="clarity:help-line"></iconify-icon>
+            </button>
+        </div>
+    </header>
+
+    <div id="open-notifications">
+        <h2>Notifications</h2>
+        <button type="button" id="close-notif-box" class="exit" data-close="open-notifications">&times;</button>
+        <ul id="notifications">
+            <li class="notif">James mentioned you</li>
+            <li class="notif">Jesus is Lord</li>
+            <li class="notif">the same yesterday, today and forever</li>
+            <li class="notif">my help</li>
+        </ul>
+        <section class="actions">
+            <button type="button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 20">
+                    <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                        stroke-width="1.5" d="m1.75 9.75l2.5 2.5m3.5-4l2.5-2.5m-4.5 4l2.5 2.5l6-6.5" />
+                </svg>
+                <span>Mark all as read</span>
+            </button>
+            <a href="">View all notifications</a>
+        </section>
+    </div>
+    <div class="hero">
+        <!-- Data-page in each tab links to the corresponding page via the id -->
+        <div class="tabs-pane">
+            <button type="button" class="tab tab-active" data-page="home">
+                <iconify-icon icon="majesticons:home-line"></iconify-icon>
+                <span>Home</span>
+            </button type="button">
+            <button type="button" class="tab" data-page="write-post">
+                <iconify-icon icon="jam:write-f"></iconify-icon>
+                <span> Write Post</span>
+            </button type="button">
+            <button type="button" class="tab" data-page="to-do">
+                <iconify-icon icon="mdi:to-do"></iconify-icon>
+                <span>Goals / To-Do</span>
+            </button type="button">
+            <button type="button" class="tab" data-page="messages">
+                <iconify-icon icon="tabler:messages"></iconify-icon>
+                <span>Messages</span>
+            </button type="button">
+        </div>
+        <div id="home" class="page page-active">
+            <% if(typeof username !=='undefined' ) {%>
+                <h1>Welcome <%= username %>
+                </h1>
+                <% } %>
+                    <section id="writing-statistics" class="component">
+                        <h2>Overview</h2>
+                        <section class="writing-stat-container">
+                            <section class="stat">
+                                <h4>Total Number of Writeups</h4>
+                                <p id="total-writeup-num">10</p>
+                            </section>
+                            <section class="stat">
+                                <h4>Tags</h4>
+                                <p id="tags-written">-</p>
+                            </section>
+                            <section class="stat">
+                                <h4>------</h4>
+                                <p id="-num">-</p>
+                            </section>
+                        </section>
+                    </section>
+                    <section id="todo-statistics" class="component">
+                        <h2>Tasks yet to accomplish</h2>
+                        <p id="todo-num">5</p>
+                    </section>
+        </div>
+        <div id="write-post" class="page">
+            <h1>Write Post</h1>
+        </div>
+        <div id="to-do" class="page">
+            <h1>To-Do
+                <hr>
+            </h1>
+            <section class="todo-buttons">
+                <button type="button" onclick="openTaskDialog()">
+                    <iconify-icon icon="ph:plus-bold"></iconify-icon>
+                    New Task
+                </button>
+                <button type="button" onclick="openFilterDialog()">
+                    <iconify-icon icon="mdi:filter-outline"></iconify-icon>
+                    Filters
+                </button>
+            </section>
+            <dialog id="task-dialog">
+                <header>
+                    <button type="button" class="exit pan-to-right" data-close="task-dialog">&times;</button>
+                </header>
+                <section class="main">
+                    <h2 style="margin-top: 0; margin-bottom: 10px;">New Task</h2>
+                    <input type="text" placeholder="What you intend to do..." id="write-task">
+
+                    <label for="select_date">Due Date</label>
+                    <input type="datetime-local" name="" id="select_date">
+                </section>
+                <footer>
+                    <button type="button" onclick="addNewTask()" class="submit-ToDo pan-to-right">Done</button>
+                </footer>
+            </dialog>
+            <dialog id="filter-dialog">
+                <div class="wrapper">
+                    <div class="contains-bar">
+                        <label for="contains">Contains : </label>
+                        <input type="text" id="contains">
+                    </div>
+                    <div class="date-bar">
+                        <label for="date-field">Date : </label>
+                        <input type="date" id="date-field">
+                    </div>
+                    <button type="button" id="apply-filter" disabled>Filter</button>
+                </div>
+            </dialog>
+            <section id="tasks-container"></section>
+        </div>
+        <div id="messages" class="page">
+            <h1>Messages</h1>
+        </div>
+
+    </div>
+
+    <script src="./dashboard.js"></script>
+    <script src="./components.js"></script>
+</body>
+
+</html>

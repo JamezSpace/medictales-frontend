@@ -1,0 +1,180 @@
+:root{
+    --black : #000;
+}
+*, *::before, *::after{
+    box-sizing: border-box;
+}
+html, body{
+    padding: 0;
+    margin: 0;
+}
+a{
+    text-decoration: none;
+}
+header{
+    width: 100%;
+    height: 75vh;
+    background-color: #055;
+    padding: 2.5vh 2vw;
+}
+header div.nav-bar-container{
+    width: 100%;
+    height: 50px;
+    background-color: aliceblue;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header nav{
+    width: 40%;
+}
+
+header nav ul{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    padding-inline-start: 0;
+    list-style-type: none;
+}
+
+header div.main_content{
+    width: 100%;
+    transform: translateY(50%);
+    text-align: center;
+}
+.subsection{
+    padding: 2vh 5vw;
+    background-color: rebeccapurple;
+}
+.subsection h1{
+    margin: 0 0 15px 0;
+}
+.subsection-btn{
+    text-decoration: none;
+    border: 2px solid white;
+    border-radius: 5px;
+    padding: 10px 20px;
+    color: aliceblue;
+    transition: all .35s ease;
+    display: inline-block;
+}
+.subsection-btn:hover{
+    background-color: white;
+    color: rebeccapurple;
+}
+fieldset{
+    border-top: 2px solid #000;
+    border-left: none;
+    border-bottom: none;
+    border-right: none;
+    margin: 10px 15px;
+    padding: 0;
+}
+fieldset legend{
+    text-align: center;
+    text-transform: capitalize;
+    padding: 0 20px;
+}
+div.featured-posts{
+    padding: 10px 30px;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 23%;
+    gap: 10px;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    position: relative;
+    z-index: 1;
+}
+div.featured-posts .tag{
+    height: 200px;
+    border-radius: 10px;
+    background-color: ghostwhite;
+}
+.tag > img{
+    inline-size: 100%; /* same as width*/
+    aspect-ratio: 16/9;
+    object-fit: cover;
+}
+.snaps-inline{
+    scroll-snap-type: inline mandatory;
+    scroll-padding-inline: 50px; /* not needed because scroll snap type on children is middle, would be necessary if scroll snap type was start or end */
+}
+.snaps-inline > *{
+    scroll-snap-align: middle;
+}
+div#explore{
+    padding: 0 25px;
+}
+section#articles{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20%, 1fr));
+    gap: 10px;
+}
+.art{
+    border: 2px solid #000;
+}
+.art > img{
+    inline-size: 100%;
+    aspect-ratio: 1/0.95;
+    object-fit: cover;
+}
+.art .art-info{
+    display: flex;
+    font-size: 90%;
+}
+.art-info{
+    margin: 8px 0;
+}
+.art .title{
+    color: #000;
+    text-wrap: balance;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.author-info{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.author-info #author{
+    width: 50%;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+}
+#author > img{
+    width: 18%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}
+#author span{
+    margin-left: 3px;
+}
+.author-info .buttons{
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.buttons a{
+    width: 25px;
+    aspect-ratio: 1/1;
+    color: #000;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 105%;
+}
+.buttons a:last-child{
+    background-color: gainsboro;
+}
+.buttons a:first-child:hover{
+    background-color: gainsboro;
+}
