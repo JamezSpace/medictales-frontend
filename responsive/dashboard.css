@@ -10,11 +10,13 @@
     }
 
     div.tabs-pane{
+        height: auto;
         display: flex;
         align-items: center;
         justify-content: space-evenly;
         position: absolute;
-        bottom: 20px;
+        top: calc(100vh - 20px);
+        transform: translateY(-50%);
         border-radius: 20px;
     }
 }
