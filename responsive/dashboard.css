@@ -10,6 +10,7 @@
     }
 
     div.tabs-pane{
+        width: 90%;
         height: auto;
         display: flex;
         align-items: center;
@@ -26,6 +27,7 @@
         padding: 10px;
         margin: 0;
         color: gainsboro;
+        border-radius: calc(20px - 10px);
     }
     
     button.tab span{
