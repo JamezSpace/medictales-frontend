@@ -8,7 +8,7 @@
     <title>Sign In - Medictales</title>
 </head>
 <body>
-    <%- include("./partials/header") %>
+    <!-- <%- include("./partials/header") %> -->
     <div class="container">
         <section class="form-container page-active" id="sign-up-page">
             <h2>Create an Account</h2>
@@ -33,9 +33,11 @@
                     <div class="error-bar" id="error-email">
                         <iconify-icon icon="codicon:error" style="color: #c9184a;"></iconify-icon>
                         <span class="error-msg"></span>
+                        <!--
                         <% if(typeof msg !== 'undefined') { %>
                         <span class="error-msg"><%= msg %></span>
                         <% } %>
+                        -->
                     </div>
                 </div>
                 <div class="memberField">
@@ -87,9 +89,11 @@
                     <div class="error-bar" id="error-email">
                         <iconify-icon icon="codicon:error" style="color: #c9184a;"></iconify-icon>
                         <span class="error-msg"></span>
+                        <!--
                         <% if(typeof msg !== 'undefined') { %>
                         <span class="error-msg"><%= msg %></span>
                         <% } %>
+                        -->
                     </div>
                 </div>
                 <div class="passwordField">
