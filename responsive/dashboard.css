@@ -2,5 +2,19 @@
     html,body{
       margin: 0;
       padding: 0;
+      position: relative;
+    }
+
+    div.hero{
+        display: block;
+    }
+
+    div.tabs-pane{
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        position: absolute;
+        bottom: 20px;
+        border-radius: 20px;
     }
 }
