@@ -21,4 +21,18 @@
         transform: translate(-50%, 0); 
         border-radius: 20px;
     }
+
+    button.tab{
+        padding: 10px;
+        margin: 0;
+        color: gainsboro;
+    }
+    
+    button.tab span{
+        display: none;
+    }
+
+    button.tab.tab-active{
+        color: black;
+    }
 }
