@@ -49,10 +49,9 @@
     }
 
     section#tasks-container:empty::before {
-    position: relative;
-    left: 25%;
-    z-index: 1;
-    font-size: 2.05em;
-    color: rgb(0, 0, 0, 0.65);
+         position: relative;
+         z-index: 1;
+         font-size: 2.05em;
+         color: rgb(0, 0, 0, 0.65);
     }
 }
