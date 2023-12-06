@@ -17,7 +17,7 @@
         justify-content: space-evenly;
         position: absolute;
         left: 50%;
-        bottom: 5%;
+        bottom: calc(100dvh - 5%);
         padding: 10px;
        /* top: calc(100dvh - 20px);*/
         transform: translate(-50%, 0); 
