@@ -47,8 +47,9 @@
         color: black;
         background-color: gainsboro;
     }
+    
     section#tasks-container:empty::before {
-         position: fixed;
+         position: static;
          top: 25%;
          left: 0;
          z-index: 1;
