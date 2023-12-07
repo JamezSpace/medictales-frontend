@@ -322,7 +322,7 @@ dialog {
     display: none;
 }
 
-dialog#task-dialog {
+#task-dialog {
     min-width: 60%;
     height: 82%;
     background-color: aqua;
@@ -334,9 +334,10 @@ dialog#task-dialog {
     border-radius: 10px;
     z-index: 3;
     border: none;
+    display: none;
 }
 
-dialog#filter-dialog {
+#filter-dialog {
     position: relative;
     margin: 0;
     padding: 0 15px;
@@ -347,19 +348,19 @@ dialog#filter-dialog {
     transition: grid-template-rows 300ms ease;
 }
 
-dialog#filter-dialog div.wrapper {
+#filter-dialog div.wrapper {
     min-height: 0;
 }
 
-dialog#filter-dialog.active {
+#filter-dialog.active {
     grid-template-rows: 1fr;
 }
 
-dialog#filter-dialog.active div {
+#filter-dialog.active div {
     margin-bottom: 10px;
 }
 
-dialog#filter-dialog button#apply-filter {
+#filter-dialog button#apply-filter {
     border-radius: 5px;
     padding: 10px 20px;
     background-color: aquamarine;
