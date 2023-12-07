@@ -23,6 +23,7 @@
         border-radius: 20px;
         border: none;
         box-shadow: 0 0 2px 0.5px #000;
+        background-color: white;
     }
 
     button.tab{
@@ -46,6 +47,9 @@
         background-color: gainsboro;
     }
 
+    section#tasks-container{
+        height: 95%;
+    }
     section#tasks-container:empty::before {
          z-index: 1;
          font-size: 2.05em;
