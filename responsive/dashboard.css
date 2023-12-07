@@ -10,11 +10,11 @@
     }
 
     div.tabs-pane{
-        min-width: 70%;
+        width: 80%;
         height: auto;
         display: flex;
         align-items: center;
-        justify-content: space-evenly;
+        justify-content: space-between;
         position: fixed;
         left: 50%;
         bottom: 5%;
