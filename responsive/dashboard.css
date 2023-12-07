@@ -26,6 +26,7 @@
     }
 
     button.tab{
+        width: auto;
         padding: 10px 20px;
         margin: 0;
         color: gainsboro;
