@@ -114,7 +114,7 @@
                     Filters
                 </button>
             </section>
-            <dialog id="task-dialog">
+            <div id="task-dialog">
                 <header>
                     <button type="button" class="exit pan-to-right" data-close="task-dialog">&times;</button>
                 </header>
@@ -128,8 +128,8 @@
                 <footer>
                     <button type="button" onclick="addNewTask()" class="submit-ToDo pan-to-right">Done</button>
                 </footer>
-            </dialog>
-            <dialog id="filter-dialog">
+            </div>
+            <section id="filter-dialog">
                 <div class="wrapper">
                     <div class="contains-bar">
                         <label for="contains">Contains : </label>
@@ -141,7 +141,7 @@
                     </div>
                     <button type="button" id="apply-filter" disabled>Filter</button>
                 </div>
-            </dialog>
+            </section>
             <section id="tasks-container"></section>
         </div>
         <div id="messages" class="page">
