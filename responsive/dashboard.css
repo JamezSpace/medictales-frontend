@@ -10,7 +10,6 @@
     }
 
     div.tabs-pane{
-        width: 95%;
         height: auto;
         display: flex;
         align-items: center;
