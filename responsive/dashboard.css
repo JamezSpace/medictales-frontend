@@ -8,6 +8,11 @@
     div.hero{
         display: block;
     }
+    
+    /* Writing Post Section */
+    div#write-post textarea {
+        width: 100%;
+    }
 
     div.tabs-pane{
         width: 80%;
