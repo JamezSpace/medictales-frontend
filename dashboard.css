@@ -1,3 +1,7 @@
+:root{
+    --30-pixels: 30px;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -12,7 +16,8 @@ body.modal-open {
     position: relative;
     overflow: hidden;
 }
-body.modal-open::before{
+
+body.modal-open::before {
     content: "";
     width: 100%;
     height: 100vh;
@@ -125,12 +130,12 @@ div#open-notifications.active {
     transform: translateY(-10px);
 }
 
-ul#notifications{
+ul#notifications {
     max-height: 50vh;
     overflow: auto;
 }
 
-ul#notifications li{
+ul#notifications li {
     height: 55px;
 }
 
@@ -154,14 +159,14 @@ div#open-notifications button#close-notif-box:focus {
     opacity: 1;
 }
 
-section.actions{
+section.actions {
     display: flex;
     align-items: center;
     justify-content: space-between;
     font-size: small;
 }
 
-section.actions button{
+section.actions button {
     border-radius: 5px;
     background-color: #3b40d5;
     display: flex;
@@ -170,7 +175,7 @@ section.actions button{
     color: #fff;
 }
 
-section.actions button span{
+section.actions button span {
     margin-left: 2.5px;
 }
 
@@ -193,8 +198,7 @@ button.tab {
     margin-bottom: 10px;
     display: flex;
     align-items: center;
-    border-radius: 0 30px 30px 0;
-    cursor: pointer;
+    border-radius: 0 var(--30-pixels) var(--30-pixels) 0;
 }
 
 button.tab span {
@@ -257,6 +261,31 @@ section#todo-statistics {
     width: fit-content;
 }
 
+/* Writing Post Section */
+div#write-post textarea {
+    max-width: 100%;
+    min-height: 100px;
+    word-wrap: break-word;
+}
+
+section.post-action-buttons{
+    margin-top: 10px;
+    float: right;
+}
+
+section.post-action-buttons button{
+    display: inline-flex;
+    align-items: center;
+    font-size: 1rem;
+    padding: 10px 20px;
+    border-radius: var(--30-pixels);
+}
+
+section.post-action-buttons button *:first-child{
+    margin-right: 10px;
+}
+
+/* TO-DO Section */
 section.todo-buttons {
     background-color: transparent;
     margin-bottom: 16px;
@@ -269,10 +298,8 @@ section.todo-buttons button {
     display: inline-flex;
     align-items: center;
     justify-content: space-evenly;
-    background-color: #3b40d5;
     background-color: transparent;
     color: #000;
-    cursor: pointer;
 }
 
 section.todo-buttons button:first-child:focus,
@@ -349,6 +376,7 @@ dialog {
 }
 
 #filter-dialog div.wrapper {
+    max-width: 50%;
     min-height: 0;
 }
 
@@ -360,11 +388,16 @@ dialog {
     margin-bottom: 10px;
 }
 
-#filter-dialog button#apply-filter {
+#filter-dialog input {
+    border-radius: 5px;
+    width: 100%;
+}
+
+button#apply-filter {
     border-radius: 5px;
     padding: 10px 20px;
     background-color: aquamarine;
-    cursor: pointer;
+    width: 100%;
 }
 
 button#apply-filter:disabled {
@@ -375,6 +408,7 @@ button#apply-filter:disabled {
 #task-dialog.active {
     display: block;
 }
+
 button.exit {
     border-radius: 50%;
     display: flex;
