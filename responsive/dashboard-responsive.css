@@ -55,6 +55,7 @@
         background-color: gainsboro;
     }
 
+    /* Tasks Section */
     section#tasks-container:empty::before {
         position: static;
         top: 50%;
@@ -67,5 +68,11 @@
     #task-dialog {
         max-width: 75%;
         aspect-ratio: 9/16;
+    }
+
+    /* Writing Section */
+    section.post-action-buttons{
+       display: flex;
+       justify-content: space-between;
     }
 }
