@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./dashboard.css">
-    <link rel="stylesheet" href="./responsive/dashboard.css">
+    <link rel="stylesheet" href="./responsive/dashboard-responsive.css">
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-    <script src="tinymce.min.js"></script>
+    <script src="https://cdn.tiny.cloud/1/h7xwnxcc1yasz6b46k341lulxykp8ykbfz94id23a0m8vanv/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     <title>Medictales | Dashboard</title>
 </head>
 
@@ -71,8 +71,8 @@
             </button type="button">
         </div>
         <div id="home" class="page page-active">
-            <!--
-            <% if(typeof username !=='undefined' ) {%>
+
+           <!-- <% if(typeof username !=='undefined' ) {%>
                 <h1>Welcome <%= username %>
                 </h1>
                 <% } %> -->
@@ -99,7 +99,23 @@
                     </section>
         </div>
         <div id="write-post" class="page">
-            <h1>Write Post</h1>
+            <h1>Write Post
+                <hr>
+            </h1>
+            <textarea name="" id="post-textarea" cols="30" rows="10"></textarea>
+            <section class="post-action-buttons">
+                <button type="button">Save as Draft</button>
+                <button type="button">Upload</button>
+            </section>
+            <script>
+                tinymce.init({
+                    selector: 'textarea#post-textarea',
+                    height: '430px',
+                    plugins: 'advlist link image lists table fullscreen',
+                    content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }'
+                    // toolbar : 'code'
+                });
+            </script>
         </div>
         <div id="to-do" class="page">
             <h1>To-Do
@@ -133,11 +149,11 @@
             <section id="filter-dialog">
                 <div class="wrapper">
                     <div class="contains-bar">
-                        <label for="contains">Contains : </label>
+                        <label for="contains">Contains</label>
                         <input type="text" id="contains">
                     </div>
                     <div class="date-bar">
-                        <label for="date-field">Date : </label>
+                        <label for="date-field">Date</label>
                         <input type="date" id="date-field">
                     </div>
                     <button type="button" id="apply-filter" disabled>Filter</button>
