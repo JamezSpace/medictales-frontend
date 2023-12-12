@@ -276,7 +276,6 @@ section.post-action-buttons{
 section.post-action-buttons button{
     display: inline-flex;
     align-items: center;
-    font-size: 1rem;
     padding: 10px 20px;
     border-radius: var(--30-pixels);
 }
