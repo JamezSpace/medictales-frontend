@@ -156,6 +156,8 @@ section#articles{
 }
 .author-info{
     margin-top: 10px;
+    display: flex;
+    align-items: center;
     justify-content: space-between;
 }
 .author-info #author{
@@ -174,6 +176,7 @@ section#articles{
 }
 .author-info .buttons{
     width: 30%;
+    display: flex;
     justify-content: space-evenly;
 }
 .buttons a{
