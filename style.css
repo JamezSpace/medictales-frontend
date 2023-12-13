@@ -1,47 +1,65 @@
-:root{
-    --text : #e6eff6;
-    --medic-green : #178878;
-    --medic-primary-blue : #181d60;
-    --medic-blue-1 : #0069ae;
-    --medic-blue-2 : #119ffd;
-    --medic-grey: #6b6b6b; 
+@import url('https://fonts.googleapis.com/css2?family=Hedvig+Letters+Serif:opsz@12..24&family=Poppins&display=swap');
+
+
+@font-face {
+    font-family: "Pluto";
+    src: url('./fonts/HvDTrial_Pluto-CondRegular-BF6486959e6db70.otf');
 }
-*, *::before, *::after{
+
+:root {
+    --text: #e6eff6;
+    --medic-green: #178878;
+    --medic-primary-blue: #181d60;
+    --medic-blue-1: #0069ae;
+    --medic-blue-2: #119ffd;
+    --medic-grey: #6b6b6b;
+}
+
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
-html, body{
+
+html,
+body {
     padding: 0;
     margin: 0;
+    font-family: 'Hedvig Letters Serif', serif;
 }
-a{
+
+a {
     text-decoration: none;
 }
-.flex{
+
+.flex {
     display: flex;
     align-items: center;
 }
-header{
+
+header {
     width: 100%;
     height: 75vh;
     background-color: #fff;
     padding: 2.5vh 2vw;
 }
-header div.nav-bar-container{
+
+header div.nav-bar-container {
     width: 100%;
     height: 50px;
     justify-content: space-between;
 }
 
-div.nav-bar-container > img{
+div.nav-bar-container>img {
     max-height: 40px;
     object-fit: contain;
 }
 
-header nav{
+header nav {
     width: 40%;
 }
 
-header nav ul{
+header nav ul {
     width: 100%;
     display: flex;
     justify-content: space-evenly;
@@ -49,26 +67,47 @@ header nav ul{
     list-style-type: none;
 }
 
-header nav ul li{
+header nav ul li {
     padding: 3.5px 8px;
     background-color: red;
 }
 
-header div.main_content{
+header div.main_content {
     width: 100%;
     transform: translateY(50%);
     text-align: center;
     font-size: 120%;
 }
 
-.subsection{
+.main-title {
+    font-family: "Poppins", sans-serif;
+    font-size: 48px;
+    margin-bottom: 5px;
+}
+
+.main-title span {
+    background: rgb(24, 29, 96);
+    background: linear-gradient(90deg, rgba(24, 29, 96, 1) 0%, rgba(23, 136, 120, 1) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.subtitle{
+    font-size: 21px;
+    margin: 10px 0;
+}
+
+.subsection {
     padding: 2vh 5vw;
     background-color: rebeccapurple;
 }
-.subsection h1{
+
+.subsection h1 {
     margin: 0 0 15px 0;
 }
-.subsection-btn{
+
+.subsection-btn {
     text-decoration: none;
     border: 2px solid var(--medic-blue-1);
     border-radius: 5px;
@@ -77,11 +116,13 @@ header div.main_content{
     transition: all .35s ease;
     display: inline-block;
 }
-.subsection-btn:hover{
+
+.subsection-btn:hover {
     background-color: var(--medic-blue-1);
     color: var(--text);
 }
-fieldset{
+
+fieldset {
     border-top: 2px solid #000;
     border-left: none;
     border-bottom: none;
@@ -89,12 +130,14 @@ fieldset{
     margin: 10px 15px;
     padding: 0;
 }
-fieldset legend{
+
+fieldset legend {
     text-align: center;
     text-transform: capitalize;
     padding: 0 20px;
 }
-div.featured-posts{
+
+div.featured-posts {
     padding: 10px 30px;
     display: grid;
     grid-auto-flow: column;
@@ -105,48 +148,62 @@ div.featured-posts{
     position: relative;
     z-index: 1;
 }
-div.featured-posts .tag{
+
+div.featured-posts .tag {
     height: 200px;
     border-radius: 10px;
     background-color: ghostwhite;
 }
-.tag > img{
-    inline-size: 100%; /* same as width*/
+
+.tag>img {
+    inline-size: 100%;
+    /* same as width*/
     aspect-ratio: 16/9;
     object-fit: cover;
 }
-.snaps-inline{
+
+.snaps-inline {
     scroll-snap-type: inline mandatory;
-    scroll-padding-inline: 50px; /* not needed because scroll snap type on children is middle, would be necessary if scroll snap type was start or end */
+    scroll-padding-inline: 50px;
+    /* not needed because scroll snap type on children is middle, would be necessary if scroll snap type was start or end */
 }
-.snaps-inline > *{
+
+.snaps-inline>* {
     scroll-snap-align: middle;
 }
-div#explore{
+
+div#explore {
     padding: 0 25px;
 }
-section#articles{
+
+section#articles {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(11.25rem, 100%), 1fr));
     gap: 30px 10px;
 }
-.art{
+
+.art {
     border-radius: 10px;
 }
-.art > img{
+
+.art>img {
     inline-size: 100%;
     aspect-ratio: 1/0.95;
     object-fit: cover;
     border-radius: 10px 10px 0 0;
 }
-.art .art-info{
+
+.art .art-info {
     display: flex;
     font-size: 85%;
+    color: #495057;
 }
-.art-info{
+
+.art-info {
     margin: 8px 0;
 }
-.art .title{
+
+.art .title {
     color: #000;
     text-wrap: balance;
     display: -webkit-box;
@@ -156,24 +213,29 @@ section#articles{
     text-overflow: ellipsis;
     font-weight: 600;
 }
-.author-info{
+
+.author-info {
     margin-top: 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-.author-info #author{
-    width: 50%;
+
+.author-info #author {
+    width: 60%;
     display: inline-flex;
     align-items: center;
     cursor: pointer;
 }
-#author > img{
-    width: 18%;
+
+#author>img {
+    width: 20%;
     aspect-ratio: 1/1;
     object-fit: cover;
 }
-#author span{
+
+#author span {
+    font-size: 75%;
     margin-left: 3px;
     display: -webkit-box;
     -webkit-line-clamp: 1;
@@ -181,12 +243,15 @@ section#articles{
     overflow: hidden;
     text-overflow: ellipsis;
 }
-.author-info .buttons{
+
+.author-info .buttons {
     width: 30%;
     display: flex;
+    align-items: center;
     justify-content: space-evenly;
 }
-.buttons a{
+
+.buttons a {
     width: 25px;
     aspect-ratio: 1/1;
     color: #000;
@@ -196,9 +261,11 @@ section#articles{
     align-items: center;
     font-size: 105%;
 }
-.buttons a:last-child{
-    background-color: gainsboro;
+
+.buttons a:last-child {
+    background-color: #dee2e6;
 }
-.buttons a:first-child:hover{
+
+.buttons a:first-child:hover {
     background-color: gainsboro;
 }
