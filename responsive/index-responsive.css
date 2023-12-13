@@ -8,4 +8,15 @@
     div.featured-posts{
         grid-auto-columns: 46%;
     }
+
+    /* Explore Section */
+    #author>img {
+        width: 15%;
+        aspect-ratio: 1/1;
+        object-fit: cover;
+    }
+
+    .buttons a {
+        width: 30px;
+    }
 }
