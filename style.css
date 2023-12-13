@@ -173,6 +173,11 @@ section#articles{
 }
 #author span{
     margin-left: 3px;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .author-info .buttons{
     width: 30%;
