@@ -1,5 +1,10 @@
 :root{
-    --black : #000;
+    --text : #e6eff6;
+    --medic-green : #178878;
+    --medic-primary-blue : #181d60;
+    --medic-blue-1 : #0069ae;
+    --medic-blue-2 : #119ffd;
+    --medic-grey: #6b6b6b; 
 }
 *, *::before, *::after{
     box-sizing: border-box;
@@ -11,19 +16,25 @@ html, body{
 a{
     text-decoration: none;
 }
+.flex{
+    display: flex;
+    align-items: center;
+}
 header{
     width: 100%;
     height: 75vh;
-    background-color: #055;
+    background-color: #fff;
     padding: 2.5vh 2vw;
 }
 header div.nav-bar-container{
     width: 100%;
     height: 50px;
-    background-color: aliceblue;
-    display: flex;
     justify-content: space-between;
-    align-items: center;
+}
+
+div.nav-bar-container > img{
+    max-height: 40px;
+    object-fit: contain;
 }
 
 header nav{
@@ -38,11 +49,18 @@ header nav ul{
     list-style-type: none;
 }
 
+header nav ul li{
+    padding: 3.5px 8px;
+    background-color: red;
+}
+
 header div.main_content{
     width: 100%;
     transform: translateY(50%);
     text-align: center;
+    font-size: 120%;
 }
+
 .subsection{
     padding: 2vh 5vw;
     background-color: rebeccapurple;
@@ -52,16 +70,16 @@ header div.main_content{
 }
 .subsection-btn{
     text-decoration: none;
-    border: 2px solid white;
+    border: 2px solid var(--medic-blue-1);
     border-radius: 5px;
     padding: 10px 20px;
-    color: aliceblue;
+    color: var(--text);
     transition: all .35s ease;
     display: inline-block;
 }
 .subsection-btn:hover{
-    background-color: white;
-    color: rebeccapurple;
+    background-color: var(--medic-blue-1);
+    color: var(--text);
 }
 fieldset{
     border-top: 2px solid #000;
@@ -109,7 +127,7 @@ div#explore{
 }
 section#articles{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(20%, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(11.25rem, 100%), 1fr));
     gap: 10px;
 }
 .art{
@@ -138,8 +156,6 @@ section#articles{
 }
 .author-info{
     margin-top: 10px;
-    display: flex;
-    align-items: center;
     justify-content: space-between;
 }
 .author-info #author{
@@ -158,8 +174,6 @@ section#articles{
 }
 .author-info .buttons{
     width: 30%;
-    display: flex;
-    align-items: center;
     justify-content: space-evenly;
 }
 .buttons a{
