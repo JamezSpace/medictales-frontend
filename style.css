@@ -131,12 +131,13 @@ section#articles{
     gap: 10px;
 }
 .art{
-    border: 2px solid #000;
+    border-radius: 10px;
 }
 .art > img{
     inline-size: 100%;
     aspect-ratio: 1/0.95;
     object-fit: cover;
+    border-radius: 10px 10px 0 0;
 }
 .art .art-info{
     display: flex;
