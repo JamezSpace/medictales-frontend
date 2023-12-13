@@ -17,6 +17,7 @@
     }
 
     .buttons a {
-        width: 30px;
+        width: 30%;
+        font-size: 110%;
     }
 }
