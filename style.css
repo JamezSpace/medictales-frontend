@@ -141,7 +141,7 @@ section#articles{
 }
 .art .art-info{
     display: flex;
-    font-size: 90%;
+    font-size: 85%;
 }
 .art-info{
     margin: 8px 0;
@@ -154,6 +154,7 @@ section#articles{
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
+    font-weight: 600;
 }
 .author-info{
     margin-top: 10px;
