@@ -11,6 +11,9 @@
     .nav-bar-container nav ul li{
         display: none;
     }
+    .nav-bar-container nav ul svg{
+        display: inline-flex;
+    }
 
     /* Feautured Posts */
     div.featured-posts{
