@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./login_signup.css">
+    <link rel="stylesheet" href="css/login_signup.css">
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
     <title>Sign In - Medictales</title>
 </head>
 <body>
-    <!-- <%- include("./partials/header") %> -->
+    <%- include("./partials/header") %>
     <div class="container">
         <section class="form-container page-active" id="sign-up-page">
             <h2>Create an Account</h2>
-            <a href="" id="google-login">
+            <a href="" id="google-login" class="btn">
                 <iconify-icon icon="devicon:google" style="margin-right: 5px;"></iconify-icon>Login with Google
             </a>
             <fieldset>
@@ -33,11 +33,9 @@
                     <div class="error-bar" id="error-email">
                         <iconify-icon icon="codicon:error" style="color: #c9184a;"></iconify-icon>
                         <span class="error-msg"></span>
-                        <!--
                         <% if(typeof msg !== 'undefined') { %>
                         <span class="error-msg"><%= msg %></span>
                         <% } %>
-                        -->
                     </div>
                 </div>
                 <div class="memberField">
@@ -69,7 +67,7 @@
                         </div>
                     </div>
                 </div>
-                <button type="submit" id="submit-btn">Sign Up</button>
+                <button type="submit" id="submit-btn" class="btn btn-outline">Sign Up</button>
             </form>
         </section>
 
@@ -89,18 +87,16 @@
                     <div class="error-bar" id="error-email">
                         <iconify-icon icon="codicon:error" style="color: #c9184a;"></iconify-icon>
                         <span class="error-msg"></span>
-                        <!--
                         <% if(typeof msg !== 'undefined') { %>
                         <span class="error-msg"><%= msg %></span>
                         <% } %>
-                        -->
                     </div>
                 </div>
                 <div class="passwordField">
                     <label for="password-login">Password*</label><br>
                     <input type="password" name="userpassword" id="password-login" class="typed-input" required>
                 </div>
-                <button type="submit" id="login-btn">Login</button>
+                <button type="submit" id="login-btn" class="btn btn-outline">Login</button>
         </section>
 
         <section class="tabs">
