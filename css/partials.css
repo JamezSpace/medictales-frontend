@@ -1,0 +1,62 @@
+:root {
+    --text: #e6eff6;
+    --medic-green: #178878;
+    --medic-primary-blue: #181d60;
+    --medic-blue-1: #0069ae;
+    --medic-blue-2: #119ffd;
+    --medic-grey: #6b6b6b;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+footer {
+    padding: 10px;
+}
+
+article h4,
+article p {
+    margin: 0;
+}
+
+button {
+    outline: none;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.logo {
+    height: 50px;
+    margin: 15px 0;
+}
+
+.logo img {
+    height: 100%;
+    object-fit: contain;
+}
+
+.btn-partial {
+    padding: 5px 10px;
+    border-radius: 3px;
+    transition: all 200ms ease;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+}
+
+.btn-partial-outline {
+    border: 1px solid var(--medic-blue-1);
+    color: var(--medic-blue-1);
+}
+
+.btn-partial-outline:hover {
+    background-color: var(--medic-blue-1);
+    color: #fff;
+}
+
+.mrg-10 {
+    margin: 10px 0;
+}
