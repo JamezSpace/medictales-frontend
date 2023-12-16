@@ -1,0 +1,462 @@
+:root{
+    --30-pixels: 30px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body.modal-open {
+    position: relative;
+    overflow: hidden;
+}
+
+body.modal-open::before {
+    content: "";
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    z-index: 1;
+    background-color: rgb(0, 0, 0, 0.45);
+}
+
+h2 {
+    margin: 13px auto 15px auto;
+}
+
+ul {
+    padding-inline-start: 0;
+    list-style-type: none;
+}
+
+button {
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+input:focus {
+    outline: none;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header.page-nav {
+    height: 50px;
+    background-color: navy;
+    padding: 0 20px;
+}
+
+header div.logo {
+    width: 30%;
+    height: inherit;
+    background-color: aliceblue;
+}
+
+header div.buttons {
+    width: 50%;
+    height: inherit;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: cornflowerblue;
+}
+
+button.header-button {
+    height: 30px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    position: relative;
+}
+
+button.header-button * {
+    font-size: 20px;
+}
+
+button.header-button::after:not(:last-child) {
+    content: attr(data-tooltip);
+    position: absolute;
+    background-color: rgb(0, 0, 0, 0.3);
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transform: translateY(120%);
+    opacity: 0;
+    z-index: 2;
+}
+
+button.header-button:hover::after {
+    opacity: 1;
+}
+
+button.header-button:hover {
+    background-color: gray;
+}
+
+div#open-notifications {
+    padding: 10px 15px 20px 20px;
+    padding-left: 20px;
+    border-radius: 15px;
+    min-width: 350px;
+    position: relative;
+    display: none;
+    background-color: white;
+}
+
+/* div#open-notifications :nth-child(2){
+    font-size: 16px;
+} */
+
+div#open-notifications.active {
+    display: inline-block;
+    position: absolute;
+    z-index: 2;
+    right: 15%;
+    transform: translateY(-10px);
+}
+
+ul#notifications {
+    max-height: 50vh;
+    overflow: auto;
+}
+
+ul#notifications li {
+    height: 55px;
+}
+
+ul#notifications li:not(:last-child) {
+    border-bottom: 0.5px solid gainsboro;
+}
+
+div#open-notifications button#close-notif-box {
+    font-size: 1.75rem;
+    border-radius: 5px;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    border: 1.5px solid gainsboro;
+    background-color: transparent;
+    opacity: 0.5;
+}
+
+div#open-notifications button#close-notif-box:hover,
+div#open-notifications button#close-notif-box:focus {
+    opacity: 1;
+}
+
+section.actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: small;
+}
+
+section.actions button {
+    border-radius: 5px;
+    background-color: #3b40d5;
+    display: flex;
+    align-items: center;
+    padding: 5px 7px;
+    color: #fff;
+}
+
+section.actions button span {
+    margin-left: 2.5px;
+}
+
+div.hero {
+    display: grid;
+    grid-template-columns: 15% 85%;
+    margin-top: 10px;
+}
+
+div.tabs-pane {
+    height: 80vh;
+    padding-top: 30px;
+    border-right: 1.5px solid gainsboro;
+}
+
+button.tab {
+    width: 90%;
+    padding: 15px 10px;
+    background-color: blanchedalmond;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    border-radius: 0 var(--30-pixels) var(--30-pixels) 0;
+}
+
+button.tab span {
+    margin-left: 10px;
+}
+
+button.tab.tab-active {
+    background-color: aqua;
+    color: red;
+}
+
+.page {
+    display: none;
+    padding: 0 5%;
+    position: relative;
+}
+
+.page-active {
+    display: block;
+}
+
+.component {
+    border-radius: 20px;
+    border: 1.5px solid gainsboro;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+}
+
+.component h2 {
+    margin: 0 0 25px 0;
+    font-weight: 400;
+}
+
+.component p {
+    font-weight: bold;
+    font-size: 140%;
+    margin: 8px 0;
+}
+
+section#writing-statistics .writing-stat-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+section#writing-statistics .writing-stat-container .stat {
+    min-width: 30%;
+}
+
+section#writing-statistics .writing-stat-container .stat:not(:first-child) {
+    padding-left: 20px;
+    border-left: 1.5px solid gainsboro;
+}
+
+section#writing-statistics .writing-stat-container h4 {
+    font-weight: 500;
+    margin-top: 0;
+}
+
+section#todo-statistics {
+    width: fit-content;
+}
+
+/* Writing Post Section */
+div#write-post textarea {
+    max-width: 100%;
+    min-height: 100px;
+    word-wrap: break-word;
+}
+
+section.post-action-buttons{
+    margin-top: 10px;
+    float: right;
+}
+
+section.post-action-buttons button{
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 20px;
+    border-radius: var(--30-pixels);
+}
+
+section.post-action-buttons button *:first-child{
+    margin-right: 10px;
+}
+
+/* TO-DO Section */
+section.todo-buttons {
+    background-color: transparent;
+    margin-bottom: 16px;
+}
+
+section.todo-buttons button {
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: 1.5px solid;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: transparent;
+    color: #000;
+}
+
+section.todo-buttons button:first-child:focus,
+section.todo-buttons button:first-child:active {
+    box-shadow: 0px 0px 2px #3b40d5;
+}
+
+section.todo-buttons button:first-child {
+    background-color: #3b40d5;
+    color: #fff;
+}
+
+section.todo-buttons button *:first-child {
+    margin-right: 5px;
+}
+
+/* adding new task */
+section#tasks-container {
+    height: 73.5%;
+    overflow: auto;
+}
+
+section#tasks-container:empty::before {
+    content: "Nothing to show yet ...";
+    position: relative;
+    top: 40%;
+    left: 25%;
+    transform: translateY(-50%);
+    z-index: 1;
+    font-size: 2.05em;
+    color: rgb(0, 0, 0, 0.65);
+}
+
+.task {
+    border: 1.5px solid gainsboro;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+section.task:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+/* open dialog box */
+
+dialog {
+    display: none;
+}
+
+#task-dialog {
+    min-width: 60%;
+    height: 82%;
+    background-color: aqua;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 15px;
+    border-radius: 10px;
+    z-index: 3;
+    border: none;
+    display: none;
+}
+
+#filter-dialog {
+    position: relative;
+    margin: 0;
+    padding: 0 15px;
+    border: none;
+    display: grid;
+    grid-template-rows: 0fr;
+    overflow: hidden;
+    transition: grid-template-rows 300ms ease;
+}
+
+#filter-dialog div.wrapper {
+    max-width: 50%;
+    min-height: 0;
+}
+
+#filter-dialog.active {
+    grid-template-rows: 1fr;
+}
+
+#filter-dialog.active div {
+    margin-bottom: 10px;
+}
+
+#filter-dialog input {
+    border-radius: 5px;
+    width: 100%;
+}
+
+button#apply-filter {
+    border-radius: 5px;
+    padding: 10px 20px;
+    background-color: aquamarine;
+    width: 100%;
+}
+
+button#apply-filter:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+#task-dialog.active {
+    display: block;
+}
+
+button.exit {
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.pan-to-right {
+    margin-left: 100%;
+    transform: translateX(-100%);
+}
+
+button.submit-ToDo {
+    border-radius: 8px;
+    padding: 10px 20px;
+    transform: translateX(-140%);
+}
+
+div#task-dialog section.main {
+    display: flex;
+    flex-direction: column;
+    padding: 0 30px;
+    margin: 0;
+}
+
+section.main input {
+    width: 100%;
+    height: 10vh;
+    border-radius: 10px;
+    padding: 0 15px;
+    font-size: 1rem;
+    line-height: 18px;
+}
+
+section.main input.invalid {
+    border: 2px solid #f00;
+}
+
+.task-completed {
+    text-decoration: line-through;
+    opacity: 0.7;
+}
+
+section.main label {
+    display: block;
+    margin-top: 20px;
+}
+
+div#task-dialog footer {
+    margin-top: 50px;
+}
