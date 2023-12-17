@@ -3,6 +3,10 @@
      margin: 0;
      padding: 0;
    }
+   div.container{
+      display: block;
+   }
+   
    section.slideshow{
       display: none;
    }
