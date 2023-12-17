@@ -1,0 +1,6 @@
+@media screen and (max-width : 800px){
+html, body{
+  margin: 0;
+  padding: 0;
+}
+}
