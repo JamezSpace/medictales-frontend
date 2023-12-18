@@ -1,22 +1,39 @@
 @media screen and (max-width : 470px) {
-    html,body{
+
+    html,
+    body {
         margin: 0;
         padding: 0;
     }
 
     /* Navigation Bar */
-    .nav-bar-container nav ul{
+    header div.nav-bar-container {
+        position: fixed;
+        left: 0;
+        top: 0;
+        padding: 2.5vh 5px;
+        height: auto;
+    }
+
+    .nav-bar-container nav ul {
         justify-content: flex-end;
     }
-    .nav-bar-container nav ul li{
+
+    .nav-bar-container nav ul li {
         display: none;
     }
-    .nav-bar-container nav ul svg{
+
+    .nav-bar-container nav ul svg {
         display: inline-flex;
     }
 
+    /* Main Content */
+    .nav-bar-container ~ .main-content {
+        transform: translateY(50%);
+    }
+
     /* Feautured Posts */
-    div.featured-posts{
+    div.featured-posts {
         grid-auto-columns: 46%;
     }
 
