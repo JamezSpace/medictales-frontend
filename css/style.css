@@ -55,6 +55,7 @@ header div.nav-bar-container {
     justify-content: space-between;
     position: relative;
     z-index: 3;
+    background-color: inherit;
 }
 
 div.nav-bar-container>img {
@@ -100,6 +101,7 @@ div.nav-bar-container>img {
     height: 100%;
     background-color: inherit;
     position: fixed;
+    top: 50px;
     left: 0;
     z-index: 2;
     transform: translateY(-120%);
@@ -128,7 +130,7 @@ div.nav-bar-container>img {
     color: var(--medic-green);
 }
 
-header div.main_content {
+header div.main-content {
     width: 100%;
     transform: translateY(50%);
     text-align: center;
