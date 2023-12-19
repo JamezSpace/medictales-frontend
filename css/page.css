@@ -20,6 +20,19 @@ header .buttons {
     text-align: end;
 }
 
+button#follow{
+    padding: 10px;
+    border-radius: 30px;
+    background-color: #000;
+    color: #fff;
+    border: 2px solid transparent;
+}
+button#follow:hover{
+    border-color: #000;
+    background-color: transparent;
+    color: #000;
+}
+
 .logo {
     height: 50px;
     margin: 15px 0;
