@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Hedvig+Letters+Serif:opsz@12..24&family=Poppins&display=swap');
+@import url('./general-styles.css');
+@import url('./partials.css');
 
 
 @font-face {
@@ -6,25 +8,8 @@
     src: url('./fonts/HvDTrial_Pluto-CondRegular-BF6486959e6db70.otf');
 }
 
-:root {
-    --text: #e6eff6;
-    --medic-green: #178878;
-    --medic-primary-blue: #181d60;
-    --medic-blue-1: #0069ae;
-    --medic-blue-2: #119ffd;
-    --medic-grey: #6b6b6b;
-}
-
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-}
-
 html,
 body {
-    padding: 0;
-    margin: 0;
     font-family: 'Hedvig Letters Serif', serif;
 }
 
@@ -34,11 +19,6 @@ a {
 ul{
     padding-inline-start: 0;
     list-style-type: none;
-}
-
-.flex {
-    display: flex;
-    align-items: center;
 }
 
 header {
