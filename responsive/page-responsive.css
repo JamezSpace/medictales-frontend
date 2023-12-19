@@ -1,0 +1,23 @@
+@media screen and (max-width : 470px) {
+    body{
+        font-size: 16px;
+    }
+    div.main-container main{
+        padding: 0;
+        display: grid;
+        grid-template-rows: 1fr 2fr 1fr;
+        grid-template-columns: 1fr;
+    }
+
+    div.main-container main section{
+        grid-row: 1;
+        padding: 0 15px;
+    }
+
+    div.main-container main > p{
+        grid-row: 3;
+        padding: 0 15px;
+        line-height: 26px;
+    }
+
+}
