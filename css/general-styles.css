@@ -1,0 +1,22 @@
+:root {
+    --text: #e6eff6;
+    --medic-green: #178878;
+    --medic-primary-blue: #181d60;
+    --medic-blue-1: #0069ae;
+    --medic-blue-2: #119ffd;
+    --medic-grey: #6b6b6b;
+}
+
+html, body{
+    margin: 0;
+    padding: 0;
+}
+
+*, *::before, *::after{
+    box-sizing: border-box;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+}
