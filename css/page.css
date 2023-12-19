@@ -71,9 +71,11 @@ main section :is(h4, h2, cite){
     margin: 0;
     font-style: normal;
 }
+
 main section cite{
     font-size: clamp(0.85rem, 1.75vw + 0.3rem, 1rem);
 }
+
 main p{
     line-height: 32px;
 }
@@ -84,7 +86,7 @@ main p{
 };
 
 #title{
-    margin: 10px 0;
+    margin: 15px 0;
     font-size: clamp(1.25rem, 2vw + 0.5rem, 1.75rem);
 }
 
