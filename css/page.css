@@ -1,0 +1,31 @@
+@import url('./general-styles.css');
+@import url('./partials.css');
+
+div.main-container{
+    background-color: var(--medic-grey);
+}
+
+main{
+    margin: 0 auto;
+    width: 100%;
+    max-width: 700px;
+    height: 700px;
+    background-color: #fff;
+    display: flow-root;
+    padding: 0 15px;
+}
+
+#tag{
+    margin-top: 10px;
+    text-transform: uppercase;
+}
+
+.author-info{
+    justify-content: space-between;
+    margin: 15px 0;
+}
+
+.author-info img{
+    margin-right: 10px;
+    height: 25px;
+}
