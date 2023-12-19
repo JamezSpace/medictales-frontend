@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Hedvig+Letters+Serif:opsz@12..24&family=Poppins&display=swap');
+
+@font-face {
+    font-family: "Pluto";
+    src: url('./fonts/HvDTrial_Pluto-CondRegular-BF6486959e6db70.otf');
+}
+
 :root {
     --text: #e6eff6;
     --medic-green: #178878;
