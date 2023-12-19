@@ -1,16 +1,17 @@
-:root {
-    --text: #e6eff6;
-    --medic-green: #178878;
-    --medic-primary-blue: #181d60;
-    --medic-blue-1: #0069ae;
-    --medic-blue-2: #119ffd;
-    --medic-grey: #6b6b6b;
+@import url("./general-styles.css");
+
+header[data-belongs-to = "partials"] {
+    width: 100%;
+    padding: 0 2vw;
+    position: sticky;
+    top: 0;
+    justify-content: space-between;
+    background-color: #fff;
 }
 
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
+header .buttons {
+    width: 50%;
+    text-align: end;
 }
 
 footer {
@@ -34,17 +35,34 @@ button {
     margin: 15px 0;
 }
 
-.logo img {
+.logo-small{
+    height: 40px;
+    margin: 10px 0;
+}
+
+.logo img,
+.logo-small img{
     height: 100%;
     object-fit: contain;
 }
 
+button#follow{
+    padding: 10px;
+    border-radius: 30px;
+    background-color: #000;
+    color: #fff;
+    border: 2px solid transparent;
+}
+button#follow:hover{
+    border-color: #000;
+    background-color: transparent;
+    color: #000;
+}
 .btn-partial {
     padding: 5px 10px;
     border-radius: 3px;
     transition: all 200ms ease;
     font-size: 0.85rem;
-    text-transform: uppercase;
 }
 
 .btn-partial-outline {
