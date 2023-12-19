@@ -5,6 +5,37 @@ body{
     font-family: "Poppins";
 }
 
+
+header[data-belongs-to = "partials"] {
+    width: 100%;
+    padding: 0 2vw;
+    position: sticky;
+    top: 0;
+    justify-content: space-between;
+    background-color: #fff;
+}
+
+header .buttons {
+    width: 50%;
+    text-align: end;
+}
+
+.logo {
+    height: 50px;
+    margin: 15px 0;
+}
+
+.logo-small{
+    height: 40px;
+    margin: 10px 0;
+}
+
+.logo img,
+.logo-small img{
+    height: 100%;
+    object-fit: contain;
+}
+
 div.main-container{
     background-color: var(--medic-grey);
 }
