@@ -1,78 +1,30 @@
-:root {
-    --text: #e6eff6;
-    --medic-green: #178878;
-    --medic-primary-blue: #181d60;
-    --medic-blue-1: #0069ae;
-    --medic-blue-2: #119ffd;
-    --medic-grey: #6b6b6b;
-}
+@import url("./general-styles.css");
 
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-}
-
-html,
-body {
-    margin: 0;
-    padding: 0;
-    font-size: 15px;
-}
-
-body{
-    height: 100vh;
-    overflow: hidden;
-}
-
-body::before {
-    position: absolute;
-    content: '';
-    border-radius: inherit;
-    background: conic-gradient(var(--medic-blue-2),
-            var(--text) 30deg 120deg,
-            var(--medic-green) 150deg 180deg,
-            var(--text) 210deg 300deg,
-            var(--medic-blue-2) 330deg);
-    -webkit-mask:
-        linear-gradient(#000 0 0) content-box,
-        linear-gradient(#000 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: intersect;
-}
-
-body::after {
-    content: "";
-    position: absolute;
-    inset: -100px;
-    background:
-        radial-gradient(200px at left 400px top 150px, var(--medic-blue-2) 100%, #0000),
-        radial-gradient(200px at right 400px bottom 150px, var(--medic-green) 100%, #0000);
-    filter: blur(120px);
-    opacity: .5;
-}
-
-body:before,
-body:after {
-    transition: .5s, 99999s 99999s transform;
-    z-index: -2;
-}
-
-body:hover:before,
-body:hover:after {
-    transform: rotate(36000deg);
-    transition: .5s, 600s linear transform;
+html{
+    font-size: 14px;
+    background-image: url('../img/bg\ -\ light\ theme.svg');
+    background-position: 100% 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: "Poppins", sans-serif;
 }
 
 h2 {
-    font-size: 1.5rem;
+    margin: 0 0 20px 0;
+    font-size: 2.25rem;
+    line-height: 46px;
+    text-align: center;
+    font-family: "Merriweather", serif;
 }
 
 .btn {
     cursor: pointer;
     border-radius: 3px;
     background-color: transparent;
-    text-transform: uppercase;
+    letter-spacing: 0.95px;
+    font-size: 1rem;
+    font-weight: 500;
 }
 
 .btn-outline {
@@ -96,7 +48,7 @@ h2 {
 }
 
 .btn-outline:hover::before {
-    width: 100%;
+    width: 100%
 }
 
 .btn-outline:hover {
@@ -109,26 +61,84 @@ h2 {
     color: var(--medic-primary-blue);
 }
 
-div.container {
-    width: 80%;
-    margin: auto;
-    border: 1px solid #000;
-    border-radius: 35px;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(30%, 70%));
-    grid-template-rows: auto 50px;
-    grid-template-areas:
-        "form slideshow"
-        "tabs slideshow";
-    vertical-align: middle;
-    padding: 15px;
-    background-color: #fff;
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
+header {
+    width: 100%;
+    padding: 0 2vw;
+    justify-content: space-between;
+}
+header .buttons {
+    width: 50%;
+    text-align: end;
 }
 
-div.container .slideshow {
+section.tabs button {
+    padding: 14px 25px;
+    outline: none;
+    border: none;
+    border-radius: 6px;
+    text-transform: uppercase;
+    background-color: #adb5bd80;
+    color: var(--text);
+    -webkit-box-shadow: 5px 5px 0 0 #004b7d;
+    -moz-box-shadow: 5px 5px 0 0 #004b7d;
+    box-shadow: 5px 5px 0 0 #004b7d;
+    transition: box-shadow 500ms;
+}
+
+section.tabs button:active{
+    -webkit-box-shadow: 0 0 0 0 #004b7d;
+    -moz-box-shadow: 0 0 0 0 #004b7d;
+    box-shadow: 0 0 0 0 #004b7d;
+}
+
+section.tabs button:not(.btn-active) {
+    display: none;
+}
+
+section.tabs button.btn-active {
+    background-color: #ced4da35;
+}
+
+.logo-small {
+    height: 40px;
+    margin: 10px 0;
+}
+
+.logo img,
+.logo-small img {
+    height: 100%;
+    object-fit: contain;
+}
+
+.heros{
+    height: calc(90vh - 50px);
+}
+
+.container {
+    width: 32em;
+    margin: auto;
+    border-radius: 5px;
+    padding: 15px;
+    position: relative;
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(255, 255, 255, 0.75);
+    border: 1px solid rgba(209, 213, 219, 0.3);
+    -webkit-box-shadow: 0 0 5px 0 #7a7a7a;
+    -moz-box-shadow: 0 0 5px 0 #7a7a7a;
+    box-shadow: 0 0 5px 0 #7a7a7a;
+}
+
+div.grid-layout {
+    width: 80%;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 50%));
+    grid-template-areas:
+        "form slideshow";
+    vertical-align: middle;
+}
+
+.container .slideshow {
     border-radius: 0 20px 20px 0;
     background-color: red;
     position: relative;
@@ -143,8 +153,6 @@ div.container .slideshow {
     left: 50%;
     bottom: 10px;
     transform: translateX(-50%);
-    display: flex;
-    align-items: center;
     justify-content: space-evenly;
 }
 
@@ -162,45 +170,12 @@ section.slide.active {
     background-color: white;
 }
 
-section.tabs {
-    margin: 0 auto;
-    grid-area: tabs;
-    text-align: center;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    opacity: 0.7;
-}
-
-section.tabs hr {
-    width: 2px;
-    height: 30px;
-    margin: 0 10px;
-    border: 0;
-    border-radius: 3px;
-    background-color: gainsboro;
-}
-
-section.tabs button {
-    padding: 15px 35px;
-    outline: none;
-    border: none;
-    border-radius: 6px;
-    text-transform: uppercase;
-    background-color: transparent;
-}
-
-section.tabs button:not(.btn-active) {
-    opacity: 0.5;
-}
-
-section.tabs button.btn-active {
-    background-color: #ced4da35;
-}
-
 div.container .form-container {
     padding: 0 15px;
     display: none;
+}
+
+#sign-up-page {
     grid-area: form;
 }
 
@@ -208,12 +183,14 @@ section.form-container.page-active {
     display: block;
 }
 
+section.form-container.page-active:not(#sign-up-page)~section.slideshow {
+    display: none;
+}
+
 a#google-login {
     height: 30px;
     text-decoration: none;
     border: 1px solid #000;
-    display: flex;
-    align-items: center;
     justify-content: center;
     color: #000;
 }
@@ -233,21 +210,49 @@ fieldset legend {
     padding: 0 20px;
 }
 
-.form-container form div:not(.error-bar, .each-info) {
+.form-container form>div {
+    position: relative;
     margin-bottom: 15px;
 }
 
+.form-container form>div:not(#sign-up-form .passwordField)::before {
+    position: absolute;
+    top: 33px;
+    left: 8px;
+}
+
+.form-container form>div:where(.passwordField)::before {
+    position: absolute;
+    top: 33px;
+    left: 8px;
+}
+
+
 input.typed-input {
     width: 100%;
-    height: 30px;
-    border: 1px solid #343a40;
-    border-radius: 2px;
-    padding: 2px 5px;
+    height: 35px;
+    border: 1px solid var(--grey-light);
+    border-radius: 5px;
+    padding: 2px 30px;
     margin-top: 3px;
+    font-size: 14.25px;
+    font-family: "Poppins", sans-serif;
 }
 
 input.typed-input:focus {
     outline: none;
+}
+
+.nameField::before {
+    content: url('https://api.iconify.design/majesticons/user-line.svg?color=%237b7b7b');
+}
+
+.emailField::before {
+    content: url('https://api.iconify.design/ic/outline-mail.svg?color=%237b7b7b');
+}
+
+.passwordField::before {
+    content: url('https://api.iconify.design/mdi/password-outline.svg?color=%237b7b7b');
 }
 
 div.error-bar.make-visible {
@@ -294,7 +299,6 @@ div.each-info>* {
 }
 
 section.selectOne {
-    display: flex;
     justify-content: space-evenly;
     margin-top: 3px;
 }
@@ -302,8 +306,6 @@ section.selectOne {
 section.selectOne .single-field {
     background-color: whitesmoke;
     border-radius: 8px;
-    display: flex;
-    align-items: center;
     padding: 10px;
     cursor: pointer;
 }
@@ -327,4 +329,5 @@ button[type="submit"] {
     width: 100%;
     height: 35px;
     margin-top: 20px;
+    font-family: "Poppins", sans-serif;
 }
