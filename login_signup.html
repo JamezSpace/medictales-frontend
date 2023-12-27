@@ -1,119 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/login_signup.css">
     <link rel="stylesheet" href="responsive/login_signup.css">
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
     <title>Sign In - Medictales</title>
 </head>
+
 <body>
-    <!-- <%- include("./partials/header") %> -->
-    <div class="container">
-        <section class="form-container page-active" id="sign-up-page">
-            <h2>Create an Account</h2>
-            <a href="" id="google-login" class="btn">
-                <iconify-icon icon="devicon:google" style="margin-right: 5px;"></iconify-icon>Login with Google
+        <header class="flex">
+            <a class="logo-small" href="./index.html">
+                <img src="/img/favicon.png" alt="company's logo">
             </a>
-            <fieldset>
-                <legend>OR</legend>
-            </fieldset>
-            <form action="/register/sign-up" id="sign-up-form" method="post">
-                <div class="nameField">
-                    <label for="name">Name</label><br>
-                    <input type="text" name="username" id="name" class="typed-input" placeholder="Enter your Name">
-                    <div class="error-bar" id="error-name">
-                        <iconify-icon icon="codicon:error" style="color: #c9184a;"></iconify-icon>
-                        <span class="error-msg"></span>
-                    </div>
-                </div>
-                <div class="emailField">
-                    <label for="email-signup">Email</label><br>
-                    <input type="text" name="useremail" id="email-signup" class="typed-input" placeholder="eg. abc@gmail.com" required>
-                    <div class="error-bar" id="error-email">
-                        <iconify-icon icon="codicon:error" style="color: #c9184a;"></iconify-icon>
-                        <span class="error-msg"></span>
-                        <% if(typeof msg !== 'undefined') { %>
-                        <span class="error-msg"><%= msg %></span>
-                        <% } %>
-                    </div>
-                </div>
-                <div class="memberField">
-                    <label for="select-one">Signing Up As</label>
-                    <section class="selectOne" id="select-one">
-                        <span class="single-field">
-                            <input type="radio" name="portfolio" id="writer" value="writer"><label for="writer">Writer</label>
-                        </span>
-                        <span class="single-field">
-                            <input type="radio" name="portfolio" id="member" value="member"><label for="member">Member</label>
-                        </span>
-                    </section>
-                    <div class="error-bar" id="error-member">
-                        <iconify-icon icon="codicon:error" style="color: #c9184a;"></iconify-icon>
-                        <span class="error-msg"></span>
-                    </div>
-                </div>
-                <div class="passwordField">
-                    <label for="password-signup">Password*</label><br>
-                    <input type="password" name="userpassword" id="password-signup" class="typed-input" placeholder="Enter your suitable password" oninput="validate_password(this.value)" required>
-                    <div class="password-info">
-                        <div class="each-info" id="check-length">
-                            <span class="icon-space"></span>
-                            <span>Password should contain at least five (5) characters</span>
-                        </div>
-                        <div class="each-info" id="check-alnumeric">
-                            <span class="icon-space"></span>
-                            <span>Password should contain letters and numbers</span>
-                        </div>
-                    </div>
-                </div>
-                <button type="submit" id="submit-btn" class="btn btn-outline">Sign Up</button>
-            </form>
-        </section>
-
-        <section class="form-container" id="login-page">
-            <h2>Login your Account</h2>
-            <a href="" id="google-login">
-                <iconify-icon icon="devicon:google" style="margin-right: 5px;"></iconify-icon>Login with Google
-            </a>
-            <fieldset>
-                <legend>OR</legend>
-            </fieldset>
-            <form action="/register/login" id="login-form" method="post">
-                <div class="emailField">
-                    <label for="email-login">Email</label><br>
-                    <input type="text" name="useremail" id="email-login" class="typed-input" required>
-
-                    <div class="error-bar" id="error-email">
-                        <iconify-icon icon="codicon:error" style="color: #c9184a;"></iconify-icon>
-                        <span class="error-msg"></span>
-                        <% if(typeof msg !== 'undefined') { %>
-                        <span class="error-msg"><%= msg %></span>
-                        <% } %>
-                    </div>
-                </div>
-                <div class="passwordField">
-                    <label for="password-login">Password*</label><br>
-                    <input type="password" name="userpassword" id="password-login" class="typed-input" required>
-                </div>
-                <button type="submit" id="login-btn" class="btn btn-outline">Login</button>
-        </section>
-
-        <section class="tabs">
-            <button type="button" id="sign-up-tab"  class="btn-active" onclick="switch_to_signup()">Sign Up</button>
-            <hr>
-            <button type="button" id="login-tab" onclick="switch_to_login()">Login</button>
-        </section>
-        <section class="slideshow">
-
-            <section class="slider">
-                <section class="slide active"></section>
-                <section class="slide"></section>
-                <section class="slide"></section>
+            <section class="tabs">
+                <button type="button" id="sign-up-tab"  onclick="switch_to_signup(this)">Sign Up</button>
+                <button type="button" id="login-tab" class="btn-active" onclick="switch_to_login(this)">Login</button>
             </section>
-        </section>
-    </div>
-    <script src="login_signup.js"></script>
+        </header>
+        <!--  <%- include("./partials/register_header") %> -->
+        <div class="heros flex">
+            <div class="container grid-layout">
+                <section class="form-container page-active" id="sign-up-page">
+                    <h2>Create an Account</h2>
+                    <!-- <a href="" id="google-login" class="btn flex">
+                    <iconify-icon icon="devicon:google" style="margin-right: 5px;"></iconify-icon>Login with Google
+                </a>
+                <fieldset>
+                    <legend>OR</legend>
+                </fieldset> -->
+                    <form action="/register/sign-up" id="sign-up-form" method="post">
+                        <div class="nameField">
+                            <label for="name">Name</label><br>
+                            <input type="text" name="username" id="name" class="typed-input" placeholder="John Doe">
+                            <div class="error-bar" id="error-name">
+                                <iconify-icon icon="codicon:error" style="color: #c9184a;"></iconify-icon>
+                                <span class="error-msg"></span>
+                            </div>
+                        </div>
+                        <div class="emailField">
+                            <label for="email-signup">Email</label><br>
+                            <input type="text" name="useremail" id="email-signup" class="typed-input"
+                                placeholder="eg. abc@gmail.com" required>
+                            <div class="error-bar" id="error-email">
+                                <iconify-icon icon="codicon:error" style="color: #c9184a;"></iconify-icon>
+                                <span class="error-msg"></span>
+                                <% if(typeof msg !=='undefined' ) { %>
+                                    <span class="error-msg">
+                                        <%= msg %>
+                                    </span>
+                                    <% } %>
+                            </div>
+                        </div>
+                        <div class="memberField">
+                            <label for="select-one">Signing Up As</label>
+                            <section class="selectOne flex" id="select-one">
+                                <span class="single-field flex">
+                                    <input type="radio" name="portfolio" id="writer" value="writer"><label
+                                        for="writer">Writer</label>
+                                </span>
+                                <span class="single-field flex">
+                                    <input type="radio" name="portfolio" id="member" value="member"><label
+                                        for="member">Member</label>
+                                </span>
+                            </section>
+                            <div class="error-bar" id="error-member">
+                                <iconify-icon icon="codicon:error" style="color: #c9184a;"></iconify-icon>
+                                <span class="error-msg"></span>
+                            </div>
+                        </div>
+                        <div class="passwordField">
+                            <label for="password-signup">Password</label><br>
+                            <input type="password" name="userpassword" id="password-signup" class="typed-input"
+                                placeholder="Enter your suitable password" oninput="validate_password(this.value)"
+                                required>
+                            <div class="password-info">
+                                <div class="each-info" id="check-length">
+                                    <span class="icon-space"></span>
+                                    <span>Password should contain at least five (5) characters</span>
+                                </div>
+                                <div class="each-info" id="check-alnumeric">
+                                    <span class="icon-space"></span>
+                                    <span>Password should contain letters and numbers</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" id="submit-btn" class="btn btn-outline">Sign Up</button>
+                    </form>
+                </section>
+
+                <section class="form-container" id="login-page">
+                    <h2>Welcome Back!</h2>
+                    <!-- <a href="" id="google-login" class="flex">
+                    <iconify-icon icon="devicon:google" style="margin-right: 5px;"></iconify-icon>Login with Google
+                </a>
+                <fieldset>
+                    <legend>OR</legend>
+                </fieldset> -->
+                    <form action="/register/login" id="login-form" method="post">
+                        <div class="emailField">
+                            <label for="email-login">Email</label><br>
+                            <input type="text" name="useremail" id="email-login" class="typed-input" placeholder="Enter your email" required>
+
+                            <div class="error-bar" id="error-email">
+                                <iconify-icon icon="codicon:error" style="color: #c9184a;"></iconify-icon>
+                                <span class="error-msg"></span>
+                                <% if(typeof msg !=='undefined' ) { %>
+                                    <span class="error-msg">
+                                        <%= msg %>
+                                    </span>
+                                    <% } %>
+                            </div>
+                        </div>
+                        <div class="passwordField">
+                            <label for="password-login">Password</label><br>
+                            <input type="password" name="userpassword" id="password-login" class="typed-input" placeholder="Enter your password" required>
+                        </div>
+                        <button type="submit" id="login-btn" class="btn btn-outline">Login</button>
+                </section>
+
+                <section class="slideshow">
+
+                    <section class="slider flex">
+                        <section class="slide active"></section>
+                        <section class="slide"></section>
+                        <section class="slide"></section>
+                    </section>
+                </section>
+            </div>
+        </div>
+        <script src="js/login_signup.js"></script>
 </body>
+
 </html>
