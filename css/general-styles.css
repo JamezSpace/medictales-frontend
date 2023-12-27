@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Hedvig+Letters+Serif:opsz@12..24&family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hedvig+Letters+Serif:opsz@12..24&family=Merriweather&family=Poppins:wght@400;500&display=swap');
+
 
 @font-face {
     font-family: "Pluto";
@@ -12,6 +13,7 @@
     --medic-blue-1: #0069ae;
     --medic-blue-2: #119ffd;
     --medic-grey: #6b6b6b;
+    --grey-light: #7b7b7b;
 }
 
 html, body{
