@@ -76,4 +76,10 @@
        display: flex;
        justify-content: space-between;
     }
+
+    
+    /* Turn footer to nav bar in mobile version*/
+    body > footer{
+        display: none;
+    }
 }
