@@ -80,6 +80,6 @@
     
     /* Turn footer to nav bar in mobile version*/
     body > footer{
-        display: none;
+        display: none !important;
     }
 }
