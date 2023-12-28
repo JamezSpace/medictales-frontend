@@ -53,8 +53,8 @@
     }
 
     button.tab.tab-active {
-        color: black;
-        background-color: gainsboro;
+        color: var(--medic-blue-1);
+        background-color: #f0f0f0;
     }
 
     /* Tasks Section */
