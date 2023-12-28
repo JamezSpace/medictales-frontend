@@ -68,7 +68,7 @@
     }
 
     #task-dialog {
-        max-width: 80%;
+        min-width: 80%;
     }
 
     div#task-dialog section.main{
