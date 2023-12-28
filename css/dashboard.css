@@ -1,15 +1,7 @@
-:root{
+@import url('./general-styles.css');
+
+:root {
     --30-pixels: 30px;
-}
-
-* {
-    box-sizing: border-box;
-}
-
-html,
-body {
-    margin: 0;
-    padding: 0;
 }
 
 body.modal-open {
@@ -20,14 +12,19 @@ body.modal-open {
 body.modal-open::before {
     content: "";
     width: 100%;
-    height: 100vh;
+    height: 100%;
     position: absolute;
-    z-index: 1;
+    z-index: 2;
     background-color: rgb(0, 0, 0, 0.45);
+}
+
+a{
+    text-decoration: none;
 }
 
 h2 {
     margin: 13px auto 15px auto;
+    font-family: "Merriweather", serif;
 }
 
 ul {
@@ -47,30 +44,25 @@ input:focus {
 
 header {
     width: 100%;
-    display: flex;
-    align-items: center;
     justify-content: space-between;
 }
 
-header.page-nav {
-    height: 50px;
-    background-color: navy;
-    padding: 0 20px;
-}
-
-header div.logo {
-    width: 30%;
-    height: inherit;
-    background-color: aliceblue;
+.page-nav {
+    height: 60px;
+    padding: 15px 20px;
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+    z-index: 1;
+    -webkit-box-shadow: -0.5px 4px 5px -5px #7a7a7a;
+    -moz-box-shadow: -0.5px 4px 5px -5px #7a7a7a;
+    box-shadow: -0.5px 4px 5px -5px #7a7a7a;
 }
 
 header div.buttons {
-    width: 50%;
+    width: 40%;
     height: inherit;
-    display: flex;
     justify-content: space-evenly;
-    align-items: center;
-    background-color: cornflowerblue;
 }
 
 button.header-button {
@@ -186,19 +178,18 @@ div.hero {
 }
 
 div.tabs-pane {
-    height: 80vh;
-    padding-top: 30px;
+    height: calc(100vh - 60px);
     border-right: 1.5px solid gainsboro;
 }
 
 button.tab {
     width: 90%;
     padding: 15px 10px;
-    background-color: blanchedalmond;
     margin-bottom: 10px;
     display: flex;
     align-items: center;
     border-radius: 0 var(--30-pixels) var(--30-pixels) 0;
+    background-color: transparent;
 }
 
 button.tab span {
@@ -206,8 +197,8 @@ button.tab span {
 }
 
 button.tab.tab-active {
-    background-color: aqua;
-    color: red;
+    background-color: #f0f0f0;
+    color: var(--medic-blue-1);
 }
 
 .page {
@@ -222,9 +213,11 @@ button.tab.tab-active {
 
 .component {
     border-radius: 20px;
-    border: 1.5px solid gainsboro;
     padding: 15px 20px;
     margin-bottom: 20px;
+    -webkit-box-shadow: 0 0 4px -1.5px #333;
+    -moz-box-shadow: 0 0 4px -1.5px #333;
+    box-shadow: 0 0 4px -1.5px #333;
 }
 
 .component h2 {
@@ -268,19 +261,20 @@ div#write-post textarea {
     word-wrap: break-word;
 }
 
-section.post-action-buttons{
+section.post-action-buttons {
     margin-top: 10px;
     float: right;
 }
 
-section.post-action-buttons button{
+section.post-action-buttons button {
     display: inline-flex;
     align-items: center;
+    font-size: 1rem;
     padding: 10px 20px;
     border-radius: var(--30-pixels);
 }
 
-section.post-action-buttons button *:first-child{
+section.post-action-buttons button *:first-child {
     margin-right: 10px;
 }
 
@@ -307,7 +301,7 @@ section.todo-buttons button:first-child:active {
 }
 
 section.todo-buttons button:first-child {
-    background-color: #3b40d5;
+    background-color: var(--medic-blue-1);
     color: #fff;
 }
 
@@ -317,14 +311,15 @@ section.todo-buttons button *:first-child {
 
 /* adding new task */
 section#tasks-container {
-    height: 73.5%;
+    min-height: 100px;
+    max-height: 73.5%;
     overflow: auto;
 }
 
 section#tasks-container:empty::before {
     content: "Nothing to show yet ...";
     position: relative;
-    top: 40%;
+    top: 50px;
     left: 25%;
     transform: translateY(-50%);
     z-index: 1;
@@ -351,7 +346,7 @@ dialog {
 #task-dialog {
     min-width: 60%;
     height: 82%;
-    background-color: aqua;
+    background-color: #f8f9fa;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -395,13 +390,21 @@ dialog {
 button#apply-filter {
     border-radius: 5px;
     padding: 10px 20px;
-    background-color: aquamarine;
+    background-color: var(--text);
+    text-transform: uppercase;
     width: 100%;
+    transition: background-color 500ms, color 500ms;
+    opacity: 1;
 }
 
 button#apply-filter:disabled {
     opacity: 0.5;
     cursor: not-allowed;
+}
+
+button#apply-filter:not(:disabled):hover {
+    background-color: var(--medic-blue-1);
+    color: var(--text);
 }
 
 #task-dialog.active {
@@ -422,9 +425,12 @@ button.exit {
 }
 
 button.submit-ToDo {
-    border-radius: 8px;
-    padding: 10px 20px;
-    transform: translateX(-140%);
+    border-radius: 25px;
+    padding: 15px 30px;
+    transform: translateX(-130px);
+    font-size: 1rem;
+    background-color: #000;
+    color: var(--text);
 }
 
 div#task-dialog section.main {
@@ -432,6 +438,7 @@ div#task-dialog section.main {
     flex-direction: column;
     padding: 0 30px;
     margin: 0;
+    font-size: 1.35rem;
 }
 
 section.main input {
@@ -439,12 +446,14 @@ section.main input {
     height: 10vh;
     border-radius: 10px;
     padding: 0 15px;
-    font-size: 1rem;
+    font-size: 1.2rem;
     line-height: 18px;
+    border: 1.5px solid #333;
+    font-family: "Poppins", sans-serif;
 }
 
 section.main input.invalid {
-    border: 2px solid #f00;
+    border-color: #f00;
 }
 
 .task-completed {
@@ -454,9 +463,26 @@ section.main input.invalid {
 
 section.main label {
     display: block;
-    margin-top: 20px;
+    margin: 25px 0 8px 0;
+    font-family: "Merriweather", serif;
 }
 
 div#task-dialog footer {
     margin-top: 50px;
+}
+
+body > footer {
+    width: 100%;
+    height: 60px;
+    background-color: var(--text);
+    position: relative;
+    bottom: 0;
+    z-index: 1;
+    padding: 0 20px;
+    justify-content: space-evenly;
+    font-size: 0.85rem;
+}
+
+footer > a:not(.logo):hover{
+    text-decoration: underline;
 }
