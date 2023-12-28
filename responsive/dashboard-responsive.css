@@ -69,7 +69,10 @@
 
     #task-dialog {
         max-width: 75%;
-        aspect-ratio: 9/16;
+    }
+
+    section.main input, button.submit-ToDo{
+        font-size: 1rem;
     }
 
     /* Writing Section */
