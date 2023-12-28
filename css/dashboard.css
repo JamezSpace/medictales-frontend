@@ -345,6 +345,7 @@ dialog {
 
 #task-dialog {
     min-width: 60%;
+    max-width: 90%;
     max-height: 82%;
     background-color: #f8f9fa;
     position: fixed;
