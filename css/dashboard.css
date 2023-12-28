@@ -345,7 +345,7 @@ dialog {
 
 #task-dialog {
     min-width: 60%;
-    height: 82%;
+    max-height: 82%;
     background-color: #f8f9fa;
     position: fixed;
     top: 50%;
@@ -468,7 +468,7 @@ section.main label {
 }
 
 div#task-dialog footer {
-    margin-top: 50px;
+    margin: 50px 0;
 }
 
 body > footer {
