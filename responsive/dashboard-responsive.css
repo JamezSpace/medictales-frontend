@@ -68,11 +68,22 @@
     }
 
     #task-dialog {
-        max-width: 85%;
+        max-width: 80%;
     }
 
-    section.main input, button.submit-ToDo{
+    div#task-dialog section.main{
+        padding: 0;
+    }
+
+
+    div#task-dialog section.main input, button.submit-ToDo{
         font-size: 1rem;
+    }
+
+    button.submit-ToDo{
+        margin: 0 auto;
+        width: 100%;
+        transform: translate(0);
     }
 
     /* Writing Section */
@@ -81,7 +92,6 @@
        display: flex;
        justify-content: space-between;
     }
-
     
     /* Turn footer to nav bar in mobile version*/
     body > footer{
