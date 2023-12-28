@@ -29,3 +29,19 @@ html, body{
     display: flex;
     align-items: center;
 }
+
+.logo {
+    height: 50px;
+    margin: 15px 0;
+}
+
+.logo-small {
+    height: 40px;
+    margin: 10px 0;
+}
+
+.logo img,
+.logo-small img {
+    height: 100%;
+    object-fit: contain;
+}
