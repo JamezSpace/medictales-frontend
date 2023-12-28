@@ -4,17 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/dashboard.css">
+    <link rel="stylesheet" href="css/dashboard.css">
     <link rel="stylesheet" href="./responsive/dashboard-responsive.css">
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
     <script src="https://cdn.tiny.cloud/1/h7xwnxcc1yasz6b46k341lulxykp8ykbfz94id23a0m8vanv/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     <title>Medictales | Dashboard</title>
 </head>
 
 <body>
-    <header class="page-nav">
-        <div class="logo"></div>
-        <div class="buttons">
+    <header class="page-nav flex">
+        <a class="logo-small" href="/">
+            <img src="/img/favicon.png" alt="company's logo">
+        </a>
+        <div class="buttons flex">
             <button id="change-theme" class="header-button" data-tooltip="Theme">
                 <iconify-icon icon="iconamoon:mode-light-light"></iconify-icon>
             </button>
@@ -72,10 +75,10 @@
         </div>
         <div id="home" class="page page-active">
 
-           <!-- <% if(typeof username !=='undefined' ) {%>
+            <% if(typeof username !=='undefined' ) {%>
                 <h1>Welcome <%= username %>
                 </h1>
-                <% } %> -->
+                <% } %>
                     <section id="writing-statistics" class="component">
                         <h2>Overview</h2>
                         <section class="writing-stat-container">
@@ -136,7 +139,7 @@
                     <button type="button" class="exit pan-to-right" data-close="task-dialog">&times;</button>
                 </header>
                 <section class="main">
-                    <h2 style="margin-top: 0; margin-bottom: 10px;">New Task</h2>
+                    <h2 style="margin-top: 0; margin-bottom: 20px;">New Task</h2>
                     <input type="text" placeholder="What you intend to do..." id="write-task">
 
                     <label for="select_date">Due Date</label>
@@ -164,11 +167,20 @@
         <div id="messages" class="page">
             <h1>Messages</h1>
         </div>
-
     </div>
 
-    <script src="./dashboard.js"></script>
-    <script src="./components.js"></script>
+    <footer class="flex">
+        <a href="">Privacy & Cookies</a>
+        <a href="">Terms of Use</a>
+        <a href="/" class="logo-small">
+            <img src="/img/medictales.png" alt="company's logo">
+        </a>
+        <a href="">Feedback</a>
+        <a href="">About Medictales</a>
+    </footer>
+
+    <script src="js/dashboard.js"></script>
+    <script src="js/components.js"></script>
 </body>
 
 </html>
