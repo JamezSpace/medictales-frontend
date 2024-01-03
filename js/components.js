@@ -11,6 +11,33 @@ function openFilterDialog() {
     document.getElementById("filter-dialog").classList.toggle("active")
 }
 
+function openTagDialog() {
+    document.getElementById("tag-dialog").classList.add("active")
+    document.body.classList.add("modal-open")
+}
+
+function addTag() {
+    const tags = document.getElementById("user_tag").value.trim()
+
+    if(tags.length === 0) return
+
+    tags.split(',').forEach(tag => {
+        createTag(tag)    
+    })
+    
+    triggerExitButton(document.getElementById("close-tag-dialog"))
+}
+
+function createTag(name){
+    name = name.trim()
+    let btn = document.createElement("span")
+    btn.setAttribute("class", "tag")
+    btn.textContent = name
+
+    let relativeBtn = document.getElementsByClassName("tags-field")[0]
+    relativeBtn.appendChild(btn)
+}
+
 /**
  * Take note, this is equivalent to pressing the exit button on the dialog or tab. Hence, the element argument has to specifically point to the exit button (either by id or class), also the tab or dialog to close has to be specified as a data-close attribute in the HTML code of the exit button.
  * 
@@ -18,6 +45,7 @@ function openFilterDialog() {
  */
 function triggerExitButton(element) {
     document.getElementById(element.dataset.close).classList.remove("active")
+    document.body.classList.remove("modal-open")
 }
 
 let count = 0, numUsed = []
@@ -60,7 +88,11 @@ function addNewTask() {
     document.getElementById("tasks-container").appendChild(section)
 
     // close the dialog box
-    // triggerExitButton(document.getElementsByClassName("exit")[0])
+    closeTaskialog()
+}
+
+function closeTaskialog() {
+    triggerExitButton(document.getElementsByClassName("exit")[1]);
 }
 
 function handleNewTaskInput() {
@@ -78,18 +110,23 @@ function handleNewTaskInput() {
     return { valid: 'yes', task: text }
 }
 
+7560574761976
+
+
 // event listener to detect when task dialog has been open to make window sensitive to enter key
 
-function cb(mtList){
-    mtList.forEach(function(mutation){
-        if(mutation.attributeName === 'class'){
+// ERROR: FUNCCTION CAUSES TASK TO BE CREATED MULTIPLE TIMES
+function cb(mtList) {
+    mtList.forEach(function (mutation) {
+        if (mutation.attributeName === 'class') {
             // add eventListeer for enter key which makes it add new task
             window.addEventListener("keydown", e => {
-                if(e.key === "Enter") addNewTask()
+                if (e.key === "Enter") addNewTask()
+                if (e.key === "Escape") closeTaskialog()
             })
         }
     })
 }
 
 var observer = new MutationObserver(cb)
-observer.observe(document.getElementById("task-dialog"), {attributes : true});
+observer.observe(document.getElementById("task-dialog"), { attributes: true });
