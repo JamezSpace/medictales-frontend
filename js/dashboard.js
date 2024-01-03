@@ -57,3 +57,14 @@ const x = new MutationObserver((e) => {
 })
 
 x.observe(document.getElementById('tasks-container'), {childList : true})
+
+document.getElementById("upload-post").addEventListener("click", e => {
+    const tags_field_members = document.getElementsByClassName("tags-field")[0].children
+    const tag_input = document.getElementById("tags")
+
+    for (let i = 1; i < tags_field_members.length; i++) {
+        const element = tags_field_members[i];
+        
+        tag_input.value += element.textContent + ","
+    }
+})
