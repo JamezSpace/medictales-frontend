@@ -18,10 +18,15 @@ body.modal-open::before {
     background-color: rgb(0, 0, 0, 0.45);
 }
 
-a{
+a {
     text-decoration: none;
 }
 
+h1 {
+    font-size: 1.5rem;
+}
+
+h1,
 h2 {
     margin: 13px auto 15px auto;
     font-family: "Merriweather", serif;
@@ -45,6 +50,19 @@ input:focus {
 header {
     width: 100%;
     justify-content: space-between;
+}
+
+.pan-to-right {
+    margin-left: 100%;
+    transform: translateX(-100%);
+}
+
+.dialog-submit-btn {
+    transition: transform 300ms;
+}
+
+.dialog-submit-btn:active {
+    transform: scale(0.8);
 }
 
 .page-nav {
@@ -97,7 +115,7 @@ button.header-button:hover::after {
 }
 
 button.header-button:hover {
-    background-color: gray;
+    background-color: #dee2e6;
 }
 
 div#open-notifications {
@@ -117,7 +135,7 @@ div#open-notifications {
 div#open-notifications.active {
     display: inline-block;
     position: absolute;
-    z-index: 2;
+    z-index: 4;
     right: 15%;
     transform: translateY(-10px);
 }
@@ -182,7 +200,7 @@ div.tabs-pane {
     border-right: 1.5px solid gainsboro;
 }
 
-button.tab {
+.tab {
     width: 90%;
     padding: 15px 10px;
     margin-bottom: 10px;
@@ -192,11 +210,15 @@ button.tab {
     background-color: transparent;
 }
 
-button.tab span {
+.tab>* {
+    z-index: 0;
+}
+
+.tab span {
     margin-left: 10px;
 }
 
-button.tab.tab-active {
+.tab.tab-active {
     background-color: #f0f0f0;
     color: var(--medic-blue-1);
 }
@@ -255,10 +277,62 @@ section#todo-statistics {
 }
 
 /* Writing Post Section */
+div#write-post .title-field,
+div#write-post input[type="text"],
+div#write-post input[type="text"]::placeholder,
+div#write-post input[type="text"]::-webkit-input-placeholder {
+    font-size: 95%;
+}
+
+.tags-field {
+    gap: 8px;
+}
+
+.tags-field button,
+.tag {
+    padding: 4px 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    background-color: #000;
+    color: #fff;
+    border: 1.5px solid #000;
+    transition: all 300ms;
+    font-size: clamp(0.75rem, 1vw + 0.25rem, 0.85rem);
+}
+
+.tags-field button span {
+    font-size: 180%;
+    margin-right: 5px;
+}
+
+.tags-field button:hover,
+.tags-field button:focus {
+    background-color: transparent;
+    color: #000;
+}
+
+div#write-post input[type="text"] {
+    width: 80%;
+    padding: 8px 5px;
+    border: none;
+    border-bottom: 1.5px solid #343a40;
+    transition: border-color 300ms;
+}
+
+div#write-post input[type="text"]:focus,
+div#write-post input[type="text"]:active {
+    border-color: var(--medic-blue-1);
+}
+
 div#write-post textarea {
+    margin-top: 15px;
+    width: 100%;
     max-width: 100%;
     min-height: 100px;
     word-wrap: break-word;
+    outline: none;
+    padding: 10px 8px;
+    font-size: 120%;
 }
 
 section.post-action-buttons {
@@ -266,16 +340,72 @@ section.post-action-buttons {
     float: right;
 }
 
-section.post-action-buttons button {
+section.post-action-buttons button:last-child {
     display: inline-flex;
     align-items: center;
-    font-size: 1rem;
+    font-size: clamp(0.75rem, 1vw + 0.25rem, 0.85rem);
     padding: 10px 20px;
     border-radius: var(--30-pixels);
 }
 
-section.post-action-buttons button *:first-child {
+section.post-action-buttons button:first-child {
     margin-right: 10px;
+    background-color: transparent;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: text-underline-offset 350ms, color 350ms;
+}
+
+section.post-action-buttons button:first-child:hover,
+section.post-action-buttons button:first-child:active{
+    text-underline-offset: 5px;
+    color: var(--medic-blue-1);
+}
+
+#tag-dialog {
+    min-width: 322px;
+    padding: 30px;
+    background-color: #fff;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    z-index: 3;
+    border-radius: 10px;
+}
+
+#tag-dialog.active {
+    display: block;
+}
+
+#tag-dialog h2 {
+    margin-top: 0;
+    position: relative;
+}
+
+#tag-dialog h2 button {
+    position: absolute;
+    right: 0;
+}
+
+#tag-dialog label {
+    font-size: 120%;
+}
+
+#tag-dialog input[type="text"] {
+    width: 100% !important;
+    margin-top: 10px;
+}
+
+#tag-dialog form button {
+    padding: 8px 10px;
+    margin-top: 20px;
+    font-size: 90%;
+    float: right;
+    border-radius: 20px;
+    border: 1.5px;
+    text-transform: uppercase;
 }
 
 /* TO-DO Section */
@@ -420,18 +550,14 @@ button.exit {
     font-size: 1.5rem;
 }
 
-.pan-to-right {
-    margin-left: 100%;
-    transform: translateX(-100%);
-}
-
 button.submit-ToDo {
     border-radius: 25px;
     padding: 15px 30px;
-    transform: translateX(-130px);
     font-size: 1rem;
     background-color: #000;
     color: var(--text);
+    float: right;
+    margin: 30px 30px;
 }
 
 div#task-dialog section.main {
@@ -468,11 +594,7 @@ section.main label {
     font-family: "Merriweather", serif;
 }
 
-div#task-dialog footer {
-    margin: 50px 0;
-}
-
-body > footer {
+body>footer {
     width: 100%;
     height: 60px;
     background-color: var(--text);
@@ -484,6 +606,6 @@ body > footer {
     font-size: 0.85rem;
 }
 
-footer > a:not(.logo):hover{
+footer>a:not(.logo):hover {
     text-decoration: underline;
 }
