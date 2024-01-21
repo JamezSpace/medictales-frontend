@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/dashboard.css">
-    <link rel="stylesheet" href="./responsive/dashboard-responsive.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../responsive/dashboard-responsive.css">
     <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
     <script src="https://cdn.tiny.cloud/1/h7xwnxcc1yasz6b46k341lulxykp8ykbfz94id23a0m8vanv/tinymce/6/tinymce.min.js"
@@ -34,10 +34,10 @@
         </div>
     </header>
 
-    <div id="open-notifications">
+    <div id="notifications">
         <h2>Notifications</h2>
-        <button type="button" id="close-notif-box" class="exit" data-close="open-notifications">&times;</button>
-        <ul id="notifications">
+        <button type="button" id="close-notif-box" class="exit" data-close="notifications">&times;</button>
+        <ul id="notifs">
             <li class="notif">James mentioned you</li>
             <li class="notif">Jesus is Lord</li>
             <li class="notif">the same yesterday, today and forever</li>
@@ -61,6 +61,10 @@
                 <iconify-icon icon="majesticons:home-line"></iconify-icon>
                 <span>Home</span>
             </button>
+            <button type="button" class="tab" data-page="my-posts" id="posts-tab">
+                <iconify-icon icon="solar:documents-linear"></iconify-icon>
+                <span>My Posts</span>
+            </button>
             <button type="button" class="tab" data-page="write-post" id="write-post-tab">
                 <iconify-icon icon="jam:write-f"></iconify-icon>
                 <span> Write Post</span>
@@ -73,11 +77,15 @@
                 <iconify-icon icon="tabler:messages"></iconify-icon>
                 <span>Messages</span>
             </button>
+            <button type="button" class="tab" data-page="profile">
+                <iconify-icon icon="fluent-mdl2:profile-search"></iconify-icon>
+                <span>Profile</span>
+            </button>
         </div>
         <div id="home" class="page page-active">
             <!--
             <% if(typeof username !=='undefined' ) {%>
-                <h1>Welcome <%= username %>
+                <h1 class="title">Welcome <%= username %>
                 </h1>
                 <% } %> -->
                     <section id="writing-statistics" class="component">
@@ -102,13 +110,32 @@
                         <p id="todo-num">5</p>
                     </section>
         </div>
+        <div id="my-posts" class="page">
+            <h1>My Posts 
+                <hr>
+            </h1>
+            <section class="card-container flex"></section>
+        </div>
         <div id="write-post" class="page">
             <h1>Write Post
                 <hr>
             </h1>
-            <form action="/dashboard/write-post" method="post">
-                <div class="title-field">
-                    Title : <input type="text" name="title" placeholder="Enter your title here">
+            <form action="/dashboard/write-post" method="post" enctype="multipart/form-data">
+                <div class="title-field field">
+                    <label for="title-textarea">Title</label>
+                    <textarea name="title" id="title-textarea" cols="30" rows="2" placeholder="Enter your title here"></textarea>
+                </div>
+                <div class="description-field field">
+                    <label for="title-textarea">Description</label>
+                    <textarea name="description" id="description-textarea" cols="30" rows="5" placeholder="Blog Description ..."></textarea>
+                </div>
+                <div class="image-field field">
+                    Featured Image : 
+                    <input type="file" name="image" id="upload-image">
+                    <label for="upload-image">
+                        Click to Upload Image
+                    </label>
+                    <span id="uploaded-file" style="margin-left: 5px;"></span>
                 </div>
                 <br>
                 <div class="tags-field flex">
@@ -159,7 +186,7 @@
             </section>
             <div id="task-dialog">
                 <header>
-                    <button type="button" class="exit pan-to-right" data-close="task-dialog">&times;</button>
+                    <button type="button" class="exit pan-to-right" data-close="task-dialog" id="close-task-dialog">&times;</button>
                 </header>
                 <section class="main">
                     <h2 style="margin-top: 0; margin-bottom: 20px;">New Task</h2>
@@ -190,6 +217,9 @@
         <div id="messages" class="page">
             <h1>Messages</h1>
         </div>
+        <div id="profile" class="page">
+            <h1>My Profile</h1>
+        </div>
     </div>
 
     <footer class="flex">
@@ -202,8 +232,8 @@
         <a href="">About Medictales</a>
     </footer>
 
-    <script src="js/dashboard.js"></script>
-    <script src="js/components.js"></script>
+    <script src="../js/dashboard.js"></script>
+    <script src="../js/components.js"></script>
 </body>
 
 </html>
