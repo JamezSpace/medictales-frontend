@@ -1,5 +1,5 @@
 function openNotifBox() {
-    document.getElementById("open-notifications").classList.add("active")
+    document.getElementById("notifications").classList.add("active")
     document.body.classList.add("modal-open")
 }
 function openTaskDialog() {
@@ -32,7 +32,14 @@ function createTag(name){
     name = name.trim()
     let btn = document.createElement("span")
     btn.setAttribute("class", "tag")
+    // btn.setAttribute("data-close", "")
+    let exit_btn = document.createElement("span")
+    exit_btn.setAttribute("class", "exit")
+    exit_btn.setAttribute("onclick", "deleteTag(this)")
+    exit_btn.innerHTML = "&times;"
+    
     btn.textContent = name
+    btn.appendChild(exit_btn)
 
     let relativeBtn = document.getElementsByClassName("tags-field")[0]
     relativeBtn.appendChild(btn)
@@ -63,7 +70,7 @@ function generateTaskNumber() {
 }
 
 function addNewTask() {
-    if (handleNewTaskInput().valid !== 'yes') return
+    if (!handleNewTaskInput().valid) return
     const text = handleNewTaskInput().task
     const num = generateTaskNumber()
 
@@ -88,18 +95,27 @@ function addNewTask() {
     document.getElementById("tasks-container").appendChild(section)
 
     // close the dialog box
-    closeTaskialog()
+    closeTaskDialog()
 }
 
-function closeTaskialog() {
-    triggerExitButton(document.getElementsByClassName("exit")[1]);
+function closeTaskDialog() {
+    const exit_buttons = [...document.getElementsByClassName("exit")];
+    exit_buttons.forEach(element => {
+        if(element.id === "close-task-dialog"){
+            triggerExitButton(element);
+            return;
+        }
+    })
 }
 
 function handleNewTaskInput() {
     const text_field = document.getElementById("write-task")
     const date = document.getElementById("select_date")
 
-    if (text_field.value.trim().length === 0) return text_field.classList.add("invalid")
+    if (text_field.value.trim().length === 0) {
+        text_field.classList.add("invalid")
+        return { valid : false }
+    }
     else if (text_field.value.trim().length !== 0) text_field.classList.remove("invalid")
 
     console.log(date.value)
@@ -107,11 +123,8 @@ function handleNewTaskInput() {
     const text = text_field.value[0].toUpperCase() + text_field.value.substring(1, text_field.value.length)
 
 
-    return { valid: 'yes', task: text }
+    return { valid: true, task: text }
 }
-
-7560574761976
-
 
 // event listener to detect when task dialog has been open to make window sensitive to enter key
 
