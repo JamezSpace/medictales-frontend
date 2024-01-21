@@ -48,23 +48,63 @@ for (let i = 0; i < exit_buttons.length; i++) {
     })
 }
 
-// eventListener for filter button when task container is either empty or not.
-// if empty, filter button is disabled else it enables
-const x = new MutationObserver((e) => {
-    console.log(e[0].addedNodes.length);
+// eventListener handles whenever a child element is added to any other element
 
-    if(e[0].addedNodes.length > 0) document.getElementById("apply-filter").disabled = false;
+const x = new MutationObserver(e => {
+    e.forEach(item => {
+        // enable filter button when at least one task is dynamically created and added to the DOM. If empty, filter button is disabled else it enables
+
+        if(item.target.id === "tasks-container") document.getElementById("apply-filter").disabled = false;
+
+        // else if(item.target.contains("tags-field"))
+    })
+    // console.log(e); // debug
 })
 
+function deleteTag(obj) {
+    obj.parentNode.remove()
+}
+
 x.observe(document.getElementById('tasks-container'), {childList : true})
+
 
 document.getElementById("upload-post").addEventListener("click", e => {
     const tags_field_members = document.getElementsByClassName("tags-field")[0].children
     const tag_input = document.getElementById("tags")
 
     for (let i = 1; i < tags_field_members.length; i++) {
-        const element = tags_field_members[i];
+        let element = tags_field_members[i];
+        element = element.textContent.replace("/[;*@()]/", '').slice(0,-1)
         
-        tag_input.value += element.textContent + ","
+        tag_input.value += element + "," 
     }
+})
+
+// rewrite web url for route to handle
+document.getElementById("posts-tab").addEventListener("click", e =>{
+    const currentURL = window.location.href
+    // window.location.href = currentURL + "/my-posts"
+    showPosts()
+})
+
+function showPosts(str) {
+    var xhttp;
+    if (str == "") {
+      document.getElementsByClassName("card-container")[0].innerHTML = "";
+      return;
+    }
+    xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementsByClassName("card-container")[0].innerHTML = this.responseText;
+      }
+    };
+    xhttp.open("GET", "dashboard/my-posts", true);
+    xhttp.send();
+}
+  
+document.getElementById("upload-image").addEventListener("change", e => { 
+    const uploaded = e.target.files;
+
+    document.getElementById("uploaded-file").innerHTML = uploaded[0].name + "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"12\" height=\"12\" viewBox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"M19.78 2.2L24 6.42L8.44 22L0 13.55l4.22-4.22l4.22 4.22zm0 2.8L8.44 16.36l-4.22-4.17l-1.41 1.36l5.63 5.62L21.19 6.42z\"/></svg>"
 })
