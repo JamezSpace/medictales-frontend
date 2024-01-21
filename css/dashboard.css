@@ -1,5 +1,6 @@
 @import url('./general-styles.css');
 
+/* general stylings */
 :root {
     --30-pixels: 30px;
 }
@@ -50,6 +51,11 @@ input:focus {
 header {
     width: 100%;
     justify-content: space-between;
+}
+
+/* class stylings */
+.title {
+    font-size: 1.75rem;
 }
 
 .pan-to-right {
@@ -118,7 +124,9 @@ button.header-button:hover {
     background-color: #dee2e6;
 }
 
-div#open-notifications {
+/* Notifications */
+
+div#notifications {
     padding: 10px 15px 20px 20px;
     padding-left: 20px;
     border-radius: 15px;
@@ -128,11 +136,11 @@ div#open-notifications {
     background-color: white;
 }
 
-/* div#open-notifications :nth-child(2){
+/* div#notifications :nth-child(2){
     font-size: 16px;
 } */
 
-div#open-notifications.active {
+div#notifications.active {
     display: inline-block;
     position: absolute;
     z-index: 4;
@@ -140,20 +148,20 @@ div#open-notifications.active {
     transform: translateY(-10px);
 }
 
-ul#notifications {
+ul#notifs {
     max-height: 50vh;
     overflow: auto;
 }
 
-ul#notifications li {
+ul#notifs li {
     height: 55px;
 }
 
-ul#notifications li:not(:last-child) {
+ul#notifs li:not(:last-child) {
     border-bottom: 0.5px solid gainsboro;
 }
 
-div#open-notifications button#close-notif-box {
+div#notifications button#close-notif-box {
     font-size: 1.75rem;
     border-radius: 5px;
     position: absolute;
@@ -164,8 +172,8 @@ div#open-notifications button#close-notif-box {
     opacity: 0.5;
 }
 
-div#open-notifications button#close-notif-box:hover,
-div#open-notifications button#close-notif-box:focus {
+div#notifications button#close-notif-box:hover,
+div#notifications button#close-notif-box:focus {
     opacity: 1;
 }
 
@@ -189,14 +197,16 @@ section.actions button span {
     margin-left: 2.5px;
 }
 
+/* Heros section */
 div.hero {
     display: grid;
     grid-template-columns: 15% 85%;
     margin-top: 10px;
 }
 
+/* Tabs Pane */
 div.tabs-pane {
-    height: calc(100vh - 60px);
+    height: 90vh;
     border-right: 1.5px solid gainsboro;
 }
 
@@ -223,16 +233,19 @@ div.tabs-pane {
     color: var(--medic-blue-1);
 }
 
+/* Page tabs will open */
 .page {
     display: none;
     padding: 0 5%;
     position: relative;
+    margin-bottom: 50px;
 }
 
 .page-active {
     display: block;
 }
 
+/* Home Page */
 .component {
     border-radius: 20px;
     padding: 15px 20px;
@@ -276,28 +289,154 @@ section#todo-statistics {
     width: fit-content;
 }
 
+/* Posts Section */
+.card-container {
+    min-height: 100px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.card {
+    flex: 1 1 13em;
+    max-width: 18em;
+    border-radius: 10px;
+    overflow: auto;
+    box-shadow: 0 2px 4px #999;
+}
+
+.text {
+    font-size: clamp(1rem, 0.15vw + 0.75rem, 1.1rem);
+}
+
+.card>img {
+    object-fit: cover;
+    inline-size: 100%;
+    height: 10em;
+    display: block;
+}
+
+.card .container {
+    padding: 10px;
+}
+
+.text-container {
+    font-size: 80%;
+}
+
+.card .post-blog-title {
+    display: block;
+    margin: 0 0 5px;
+    color: #444;
+    font-size: 1.275em;
+    font-weight: 600;
+}
+
+.post-blog-title:hover,
+.post-blog-title:focus {
+    text-decoration: underline;
+}
+
+
+.card p {
+    margin: 0 0 10px;
+    color: #666;
+}
+
+.card .tag {
+    display: inline-block;
+    font-size: 70% !important;
+}
+
 /* Writing Post Section */
 div#write-post .title-field,
-div#write-post input[type="text"],
-div#write-post input[type="text"]::placeholder,
-div#write-post input[type="text"]::-webkit-input-placeholder {
-    font-size: 95%;
+div#write-post textarea::placeholder,
+div#write-post textarea::-webkit-input-placeholder {
+    font-size: 0.95em;
+}
+/* 
+div#write-post input[type="text"]:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px white inset;
+} */
+
+div#write-post .field{
+    margin-bottom: 10px;
+}
+
+div#write-post textarea{
+    width: 100%;
+    font-size: 1.15em;
+    word-wrap: break-word;
+    outline: none;
+    resize: none;
+    transition: all 300ms ;
+}
+
+div#write-post textarea:focus,
+div#write-post textarea:active{
+    border-color: var(--medic-grey);
+}
+
+#title-textarea, #description-textarea{
+    border: 1px solid #f0f0f0;
+    border-radius: 10px;
+    padding: 5px;
+    margin-top: 10px;
+}
+
+.image-field input[type="file"] {
+    display: none;
+}
+
+.image-field label {
+    cursor: pointer;
+    border: 1px solid #f0f0f0;
+    border-radius: 8px;
+    padding: 4px 8px;
+    color: var(--medic-grey);
+    transition: all 300ms;
+    display: inline-block;
+}
+
+.image-field label:hover {
+    border-color: var(--medic-grey);
+    color: var(--medic-grey);
+}
+
+.image-field span>svg {
+    margin-left: 5px;
 }
 
 .tags-field {
     gap: 8px;
+    flex-wrap: wrap;
 }
 
 .tags-field button,
 .tag {
     padding: 4px 10px;
-    border-radius: 20px;
+    border-radius: 5px;
     text-transform: uppercase;
-    background-color: #000;
+    background-color: var(--medic-grey);
     color: #fff;
-    border: 1.5px solid #000;
+    border: 1.5px solid var(--medic-grey);
     transition: all 300ms;
-    font-size: clamp(0.75rem, 1vw + 0.25rem, 0.85rem);
+    font-size: clamp(0.65em, 0.8vw + 0.25em, 0.75em);
+}
+
+.tag .exit {
+    margin-left: 5px;
+    width: 10px;
+    aspect-ratio: 1/1;
+    background-color: transparent;
+    border-radius: 50%;
+    transition: all 300ms;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+}
+
+.tag .exit:hover {
+    background-color: #dddc;
 }
 
 .tags-field button span {
@@ -308,31 +447,14 @@ div#write-post input[type="text"]::-webkit-input-placeholder {
 .tags-field button:hover,
 .tags-field button:focus {
     background-color: transparent;
-    color: #000;
+    color: var(--medic-grey);
 }
 
-div#write-post input[type="text"] {
-    width: 80%;
-    padding: 8px 5px;
-    border: none;
-    border-bottom: 1.5px solid #343a40;
-    transition: border-color 300ms;
-}
-
-div#write-post input[type="text"]:focus,
-div#write-post input[type="text"]:active {
-    border-color: var(--medic-blue-1);
-}
-
-div#write-post textarea {
+div#write-post #post-textarea {
     margin-top: 15px;
-    width: 100%;
     max-width: 100%;
     min-height: 100px;
-    word-wrap: break-word;
-    outline: none;
     padding: 10px 8px;
-    font-size: 120%;
 }
 
 section.post-action-buttons {
@@ -353,11 +475,11 @@ section.post-action-buttons button:first-child {
     background-color: transparent;
     text-decoration: underline;
     text-underline-offset: 2px;
-    transition: text-underline-offset 350ms, color 350ms;
+    transition: text-underline-offset 300ms ease, color 300ms;
 }
 
 section.post-action-buttons button:first-child:hover,
-section.post-action-buttons button:first-child:active{
+section.post-action-buttons button:first-child:active {
     text-underline-offset: 5px;
     color: var(--medic-blue-1);
 }
@@ -373,6 +495,7 @@ section.post-action-buttons button:first-child:active{
     display: none;
     z-index: 3;
     border-radius: 10px;
+    font-size: calc(0.75rem + 0.4vw);
 }
 
 #tag-dialog.active {
@@ -446,8 +569,9 @@ section#tasks-container {
     overflow: auto;
 }
 
-section#tasks-container:empty::before {
-    content: "Nothing to show yet ...";
+section#tasks-container:empty::before,
+section.card-container:empty::before {
+    content: "Nothing to show here ...";
     position: relative;
     top: 50px;
     left: 25%;
